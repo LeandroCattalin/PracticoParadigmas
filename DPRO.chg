@@ -1,0 +1,4910 @@
+"6:58:05 PM, Wednesday, March 30, 2016: Compressed sources"!
+
+DevelopmentSessionManager installNew!
+
+SessionManager current defaultResourceLibrary loadFlags: 0.
+SessionManager current stashBootInfo!
+
+"Ensure all structures have calculated size to avoid recompilation messages later"
+ExternalStructure allSubclasses do: [:e | e byteSize]!
+
+"Mark all the booted packages as base"
+Package manager markAllPackagesAsBase!
+
+SessionManager current saveImage!
+
+"6:59:05 PM, Wednesday, March 30, 2016: Image saved"!
+
+"Remove rogue .img and unnecessary .chg files"
+File delete: (File default: SessionManager current imagePath extension: 'img').
+File delete: 'DBOOT.chg'!
+
+SessionManager current quit!
+
+"18:02:28, miércoles, 14 de agosto de 2024: Dolphin Smalltalk Professional started"!
+
+"19:03:47, viernes, 6 de septiembre de 2024: Dolphin Smalltalk Professional started"!
+
+"09:42:30, viernes, 13 de septiembre de 2024: Dolphin Smalltalk Professional started"!
+
+"Filed out from Dolphin Smalltalk 7"!
+
+Object subclass: #Remedio
+	instanceVariableNames: 'nombre precio stock laborat'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+Remedio guid: (GUID fromString: '{7B5759B2-B8B6-437B-9B2B-4469507079C2}')!
+
+Remedio guid: (GUID fromString: '{7B5759B2-B8B6-437B-9B2B-4469507079C2}')!
+Remedio comment: ''!
+
+Remedio comment:
+''!
+!Remedio categoriesForClass!Kernel-Objects! !
+!Remedio methodsFor!
+iniciar:nom pre:unPre stock:unSt laborat:unLab
+"Inicializa el remedio con sus datos"
+nombre:=nom.
+precio:=unPre.
+stock:=unSt.
+laborat:=unLab.! !
+!Remedio categoriesFor: #iniciar:pre:stock:laborat:!public! !
+
+!Remedio methodsFor!
+modLab:otroLab
+"Modifica el laboratorio del remedio"
+laborat:=otroLab.
+! !
+!Remedio categoriesFor: #modLab:!public! !
+
+!Remedio methodsFor!
+modNombre: otroNom
+"Modifica el nombre del remedio"
+nombre:=otroNom.! !
+!Remedio categoriesFor: #modNombre:!public! !
+
+!Remedio methodsFor!
+modPrecio:otroPre
+"Modifica el precio del remedio"
+precio:=otroPre.
+! !
+!Remedio categoriesFor: #modPrecio:!public! !
+
+!Remedio methodsFor!
+modStock:otroSt
+"Modifica el stock del remedio"
+stock:=otroSt.
+! !
+!Remedio categoriesFor: #modStock:!public! !
+
+!Remedio methodsFor!
+verLab
+"Retorna el laboratorio del remedio"
+^laborat! !
+!Remedio categoriesFor: #verLab!public! !
+
+!Remedio methodsFor!
+verNombre
+"Retorna el nombre del remedio"
+^nombre! !
+!Remedio categoriesFor: #verNombre!public! !
+
+!Remedio methodsFor!
+verPrecio 
+"Retorna el precio del remedio"
+^precio! !
+!Remedio categoriesFor: #verPrecio!public! !
+
+!Remedio methodsFor!
+verStock
+"Retorna el stock del remedio"
+^stock! !
+!Remedio categoriesFor: #verStock!public! !
+
+!Remedio categoriesFor: #iniciar:pre:stock:laborat:!public! !
+
+!Remedio categoriesFor: #modLab:!accessing!public! !
+
+!Remedio categoriesFor: #modNombre:!accessing!public! !
+
+!Remedio categoriesFor: #modPrecio:!accessing!public! !
+
+!Remedio categoriesFor: #modStock:!accessing!public! !
+
+!Remedio categoriesFor: #verLab!accessing!public! !
+
+!Remedio categoriesFor: #verNombre!public! !
+
+!Remedio categoriesFor: #verPrecio!public! !
+
+!Remedio categoriesFor: #verStock!public! !
+
+!Remedio class methodsFor!
+crear:nom con:unPre con:unSt con:unLab
+"Crea una instancia de la clase Remedio y la inicializa con sus datos"
+^self new iniciar:nom pre:unPre stock:unSt laborat:unLab! !
+!Remedio class categoriesFor: #crear:con:con:con:!public! !
+
+!Remedio class categoriesFor: #crear:con:con:con:!public! !
+
+!
+
+"Filed out from Dolphin Smalltalk 7"!
+
+Object subclass: #Farmacia
+	instanceVariableNames: 'nombre conjRem'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+Farmacia guid: (GUID fromString: '{5581E204-7EF5-4602-94C7-C8846679A54E}')!
+
+Farmacia guid: (GUID fromString: '{5581E204-7EF5-4602-94C7-C8846679A54E}')!
+Farmacia comment: ''!
+
+Farmacia comment:
+''!
+!Farmacia categoriesForClass!Kernel-Objects! !
+!Farmacia methodsFor!
+agregar:unRem
+conjRem add:unRem.! !
+!Farmacia categoriesFor: #agregar:!public! !
+
+!Farmacia methodsFor!
+eliminar:unRem
+conjRem remove: unRem ifAbsent:[^nil].! !
+!Farmacia categoriesFor: #eliminar:!public! !
+
+!Farmacia methodsFor!
+esVacio
+^conjRem isEmpty.! !
+!Farmacia categoriesFor: #esVacio!public! !
+
+!Farmacia methodsFor!
+existe: unRem
+^conjRem includes: unRem.! !
+!Farmacia categoriesFor: #existe:!public! !
+
+!Farmacia methodsFor!
+init: nom
+
+nombre:= nom.
+conjRem := OrderedCollection new.! !
+!Farmacia categoriesFor: #init:!public! !
+
+!Farmacia methodsFor!
+modNombre:otroNom
+
+nombre:=otroNom.! !
+!Farmacia categoriesFor: #modNombre:!public! !
+
+!Farmacia methodsFor!
+recuperar: i
+^conjRem at: i.! !
+!Farmacia categoriesFor: #recuperar:!public! !
+
+!Farmacia methodsFor!
+tamanio
+^conjRem size.! !
+!Farmacia categoriesFor: #tamanio!public! !
+
+!Farmacia methodsFor!
+verNombre
+^nombre! !
+!Farmacia categoriesFor: #verNombre!public! !
+
+!Farmacia methodsFor!
+verTodos
+^conjRem.! !
+!Farmacia categoriesFor: #verTodos!public! !
+
+!Farmacia categoriesFor: #agregar:!public! !
+
+!Farmacia categoriesFor: #eliminar:!public! !
+
+!Farmacia categoriesFor: #esVacio!public! !
+
+!Farmacia categoriesFor: #existe:!public! !
+
+!Farmacia categoriesFor: #init:!public! !
+
+!Farmacia categoriesFor: #modNombre:!public! !
+
+!Farmacia categoriesFor: #recuperar:!public! !
+
+!Farmacia categoriesFor: #tamanio!public! !
+
+!Farmacia categoriesFor: #verNombre!public! !
+
+!Farmacia categoriesFor: #verTodos!public! !
+
+!Farmacia class methodsFor!
+crear:nom
+
+^self new init:nom.
+! !
+!Farmacia class categoriesFor: #crear:!public! !
+
+!Farmacia class categoriesFor: #crear:!public! !
+
+!
+
+selectedOption:= Prompter prompt: 'Seleccione una opcion'!
+
+nil!
+
+| nom options selectedOption prompter |!
+
+nom:= (Prompter prompt: 'Ingrese nombre de la farmacia').!
+
+| nom options selectedOption dialog |!
+
+|nom farm dialog options selectedOption|!
+
+!
+
+!
+
+!
+
+| nom farm dialog options selectedOption |!
+
+!
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.!
+
+options:= #('Agregar remedio' 'Realizar aumentos' 'Eliminar remedios Bagó' 'Modificar precio lotrial').!
+
+| nom farm dialog options selectedOption |!
+
+| nom farm dialog options selectedOption |
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia init:nom.
+
+options:= #('Agregar remedio' 'Realizar aumentos' 'Eliminar remedios Bagó' 'Modificar precio lotrial').
+dialog := Prompter new.
+dialog label: 'Seleccione una opción:'.
+dialog list: options.
+selectedOption := dialog prompt.!
+
+| nom farm dialog options selectedOption |
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia init: nom.
+
+options:= #('Agregar remedio' 'Realizar aumentos' 'Eliminar remedios Bagó' 'Modificar precio lotrial').
+dialog := Prompter new.
+dialog label: 'Seleccione una opción:'.
+dialog list: options.
+selectedOption := dialog prompt.!
+
+| nom farm dialog options selectedOption conjRem |
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia init: nom.
+
+options:= #('Agregar remedio' 'Realizar aumentos' 'Eliminar remedios Bagó' 'Modificar precio lotrial').
+dialog := Prompter new.
+dialog label: 'Seleccione una opción:'.
+dialog list: options.
+selectedOption := dialog prompt.!
+
+| nom farm dialog options selectedOption conjRem |
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia init: nom conjRem.
+
+options:= #('Agregar remedio' 'Realizar aumentos' 'Eliminar remedios Bagó' 'Modificar precio lotrial').
+dialog := Prompter new.
+dialog label: 'Seleccione una opción:'.
+dialog list: options.
+selectedOption := dialog prompt.!
+
+| nom farm dialog options selectedOption conjRem |
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+
+options:= #('Agregar remedio' 'Realizar aumentos' 'Eliminar remedios Bagó' 'Modificar precio lotrial').
+dialog := Prompter new.
+dialog label: 'Seleccione una opción:'.
+dialog list: options.
+selectedOption := dialog prompt.!
+
+| nom farm dialog options selectedOption conjRem |
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia init: nom.
+
+options:= #('Agregar remedio' 'Realizar aumentos' 'Eliminar remedios Bagó' 'Modificar precio lotrial').
+dialog := Prompter new.
+dialog label: 'Seleccione una opción:'.
+dialog list: options.
+selectedOption := dialog prompt.!
+
+| nom farm dialog options selectedOption conjRem |
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+
+options:= #('Agregar remedio' 'Realizar aumentos' 'Eliminar remedios Bagó' 'Modificar precio lotrial').
+dialog := Prompter new.
+dialog label: 'Seleccione una opción:'.
+dialog list: options.
+selectedOption := dialog prompt.!
+
+"10:33:35, viernes, 13 de septiembre de 2024: Image saved"!
+
+"Filed out from Dolphin Smalltalk 7"!
+
+Object subclass: #Oficina
+	instanceVariableNames: 'nombre expedientes'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+Oficina guid: (GUID fromString: '{51EB851F-373D-4898-AB7B-6C9D1B89AC6B}')!
+
+Oficina guid: (GUID fromString: '{51EB851F-373D-4898-AB7B-6C9D1B89AC6B}')!
+Oficina comment: ''!
+
+Oficina comment:
+''!
+!Oficina categoriesForClass!Kernel-Objects! !
+!Oficina methodsFor!
+agreagerExp:unExpediente
+expedientes add: unExpediente.! !
+!Oficina categoriesFor: #agreagerExp:!public! !
+
+!Oficina methodsFor!
+eliminar:unExp
+expedientes remove:unExp ifAbsent:[^nil ].! !
+!Oficina categoriesFor: #eliminar:!public! !
+
+!Oficina methodsFor!
+iniciarOficina:unNombre
+nombre:=unNombre.
+expedientes:=OrderedCollection new.! !
+!Oficina categoriesFor: #iniciarOficina:!public! !
+
+!Oficina methodsFor!
+modNombre:unNombre
+nombre:=unNombre.! !
+!Oficina categoriesFor: #modNombre:!public! !
+
+!Oficina methodsFor!
+recuperar:unaPos
+^expedientes at:unaPos.! !
+!Oficina categoriesFor: #recuperar:!public! !
+
+!Oficina methodsFor!
+verExpedientes
+^expedientes.! !
+!Oficina categoriesFor: #verExpedientes!public! !
+
+!Oficina methodsFor!
+verNombre
+^nombre.
+! !
+!Oficina categoriesFor: #verNombre!public! !
+
+!Oficina methodsFor!
+verTotalExpedientes
+^expedientes size.! !
+!Oficina categoriesFor: #verTotalExpedientes!public! !
+
+!Oficina categoriesFor: #agreagerExp:!public! !
+
+!Oficina categoriesFor: #eliminar:!public! !
+
+!Oficina categoriesFor: #iniciarOficina:!public! !
+
+!Oficina categoriesFor: #modNombre:!public! !
+
+!Oficina categoriesFor: #recuperar:!public! !
+
+!Oficina categoriesFor: #verExpedientes!public! !
+
+!Oficina categoriesFor: #verNombre!public! !
+
+!Oficina categoriesFor: #verTotalExpedientes!public! !
+
+!Oficina class methodsFor!
+crearOficina:unNombre
+^(super new) iniciarOficina:unNombre.! !
+!Oficina class categoriesFor: #crearOficina:!public! !
+
+!Oficina class categoriesFor: #crearOficina:!public! !
+
+!
+
+!Farmacia methodsFor!
+init: nom
+nombre:= nom.
+conjRem := OrderedCollection new.! !
+!Farmacia categoriesFor: #init:!public! !
+
+| nom farm dialog options selectedOption conjRem |
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia init: nom.
+
+options:= #('Agregar remedio' 'Realizar aumentos' 'Eliminar remedios Bagó' 'Modificar precio lotrial').
+dialog := Prompter new.
+dialog label: 'Seleccione una opción:'.
+dialog list: options.
+selectedOption := dialog prompt.!
+
+"11:11:37, viernes, 13 de septiembre de 2024: Image saved"!
+
+"11:11:56, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem aux cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia init: nom.
+aux:= 0.
+opcionElegida:= 0.
+
+[opcionElegida ~= 5]whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	[opcionElegida = 1] Iftrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio iniciar: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+		aux:= 1.
+	].
+		[opcionElegida = 2] ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+].
+!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem aux cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia init: nom.
+Transcript show: farm verNombre.
+aux:= 0.
+opcionElegida:= 0.
+
+[opcionElegida ~= 5]whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	[opcionElegida = 1] Iftrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio iniciar: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+		aux:= 1.
+	].
+		[opcionElegida = 2] ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+].
+!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem aux cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia init: nom.
+Transcript show: 'Nombre de la farmacia: $', (nom displayString ).
+aux:= 0.
+opcionElegida:= 0.
+
+[opcionElegida ~= 5]whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	[opcionElegida = 1] Iftrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio iniciar: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+		aux:= 1.
+	].
+		[opcionElegida = 2] ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+].
+!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem aux cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia init: nom.
+Transcript show: 'Nombre de la farmacia: $', (nom displayString ).
+aux:= 0.
+opcionElegida:= 0.
+
+[opcionElegida ~= 5]whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	[opcionElegida = 1] Iftrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio iniciar: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+		aux:= 1.
+	].
+		[opcionElegida = 2] ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+].
+!
+
+"11:21:54, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem aux cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia init: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+aux:= 0.
+opcionElegida:= 0.
+
+[opcionElegida ~= 5]whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	[opcionElegida = 1] Iftrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio iniciar: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+		aux:= 1.
+	].
+		[opcionElegida = 2] ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+].
+!
+
+"11:25:11, viernes, 13 de septiembre de 2024: Image saved"!
+
+"11:25:59, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem aux cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+aux:= 0.
+opcionElegida:= 0.
+
+[opcionElegida ~= 5]whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	[opcionElegida = 1] Iftrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio iniciar: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+		aux:= 1.
+	].
+		[opcionElegida = 2] ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+].
+!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= 5]whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	[opcionElegida = 1] Iftrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		[opcionElegida = 2] ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+].
+!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+(opcionElegida ~= 5)whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	(opcionElegida = 1) Iftrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = 2) ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+].
+!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', nom displayString.
+opcionElegida:= 0.
+
+(opcionElegida ~= 5)whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	(opcionElegida = 1) Iftrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = 2) ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+].
+!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', nom displayString.
+opcionElegida:= 0.
+
+(opcionElegida ~= '5' )whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	(opcionElegida = '1') Iftrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = 2) ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+].
+!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', nom displayString.
+opcionElegida:= 0.
+
+[opcionElegida ~= '5' ]whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	(opcionElegida = '1') Iftrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = 2) ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+].
+!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', nom displayString.
+opcionElegida:= 0.
+
+[opcionElegida ~= '5' ]whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	(opcionElegida = 1) Iftrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = 2) ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+].
+!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', nom displayString.
+opcionElegida:= 0.
+
+[opcionElegida ~= '5' ]whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	(opcionElegida = 1) ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = 2) ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+].
+!
+
+"11:53:32, viernes, 13 de septiembre de 2024: Dolphin Smalltalk Professional started"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem aux cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia init: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+aux:= 0.
+opcionElegida:= 0.
+
+[opcionElegida ~= 5]whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	[opcionElegida = 1] Iftrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio iniciar: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+		aux:= 1.
+	].
+		[opcionElegida = 2] ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+	opcionElegida:=5.
+].
+!
+
+"11:54:43, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	(opcionElegida = '1') Iftrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+	opcionElegida:=5.
+].
+!
+
+"11:55:55, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+	opcionElegida:=5.
+].
+!
+
+"12:06:07, viernes, 13 de septiembre de 2024: Dolphin Smalltalk Professional started"!
+
+!Farmacia methodsFor!
+init:nom
+nombre:=nom.
+conjRem:=OrderedCollection new.! !
+!Farmacia categoriesFor: #init:!public! !
+
+"16:08:18, viernes, 13 de septiembre de 2024: Image saved"!
+
+"17:34:18, viernes, 13 de septiembre de 2024: Dolphin Smalltalk Professional started"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+	opcionElegida:=5.
+].
+!
+
+"17:35:24, viernes, 13 de septiembre de 2024: Dolphin Smalltalk Professional started"!
+
+"Filed out from Dolphin Smalltalk 7"!
+
+Object subclass: #Remedio
+	instanceVariableNames: 'nombre precio stock laborat'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+Remedio guid: (GUID fromString: '{7B5759B2-B8B6-437B-9B2B-4469507079C2}')!
+
+Remedio guid: (GUID fromString: '{7B5759B2-B8B6-437B-9B2B-4469507079C2}')!
+Remedio comment: ''!
+
+Remedio comment:
+''!
+!Remedio methodsFor!
+iniciar:nom pre:unPre stock:unSt laborat:unLab
+"Inicializa el remedio con sus datos"
+nombre:=nom.
+precio:=unPre.
+stock:=unSt.
+laborat:=unLab.! !
+!Remedio categoriesFor: #iniciar:pre:stock:laborat:!public! !
+
+!Remedio methodsFor!
+modLab:otroLab
+"Modifica el laboratorio del remedio"
+laborat:=otroLab.
+! !
+!Remedio categoriesFor: #modLab:!accessing!public! !
+
+!Remedio methodsFor!
+modNombre: otroNom
+"Modifica el nombre del remedio"
+nombre:=otroNom.! !
+!Remedio categoriesFor: #modNombre:!accessing!public! !
+
+!Remedio methodsFor!
+modPrecio:otroPre
+"Modifica el precio del remedio"
+precio:=otroPre.
+! !
+!Remedio categoriesFor: #modPrecio:!accessing!public! !
+
+!Remedio methodsFor!
+modStock:otroSt
+"Modifica el stock del remedio"
+stock:=otroSt.
+! !
+!Remedio categoriesFor: #modStock:!accessing!public! !
+
+!Remedio methodsFor!
+verLab
+"Retorna el laboratorio del remedio"
+^laborat! !
+!Remedio categoriesFor: #verLab!accessing!public! !
+
+!Remedio methodsFor!
+verNombre
+"Retorna el nombre del remedio"
+^nombre! !
+!Remedio categoriesFor: #verNombre!public! !
+
+!Remedio methodsFor!
+verPrecio 
+"Retorna el precio del remedio"
+^precio! !
+!Remedio categoriesFor: #verPrecio!public! !
+
+!Remedio methodsFor!
+verStock
+"Retorna el stock del remedio"
+^stock! !
+!Remedio categoriesFor: #verStock!public! !
+
+!Remedio categoriesFor: #iniciar:pre:stock:laborat:!public! !
+
+!Remedio categoriesFor: #modLab:!accessing!public! !
+
+!Remedio categoriesFor: #modNombre:!accessing!public! !
+
+!Remedio categoriesFor: #modPrecio:!accessing!public! !
+
+!Remedio categoriesFor: #modStock:!accessing!public! !
+
+!Remedio categoriesFor: #verLab!accessing!public! !
+
+!Remedio categoriesFor: #verNombre!public! !
+
+!Remedio categoriesFor: #verPrecio!public! !
+
+!Remedio categoriesFor: #verStock!public! !
+
+!Remedio class methodsFor!
+crear:nom con:unPre con:unSt con:unLab
+"Crea una instancia de la clase Remedio y la inicializa con sus datos"
+^self new iniciar:nom pre:unPre stock:unSt laborat:unLab! !
+!Remedio class categoriesFor: #crear:con:con:con:!public! !
+
+!Remedio class categoriesFor: #crear:con:con:con:!public! !
+
+!
+
+"Filed out from Dolphin Smalltalk 7"!
+
+Object subclass: #Farmacia
+	instanceVariableNames: 'nombre conjRem'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+Farmacia guid: (GUID fromString: '{5581E204-7EF5-4602-94C7-C8846679A54E}')!
+
+Farmacia guid: (GUID fromString: '{5581E204-7EF5-4602-94C7-C8846679A54E}')!
+Farmacia comment: ''!
+
+Farmacia comment:
+''!
+!Farmacia methodsFor!
+agregar:unRem
+conjRem add:unRem.! !
+!Farmacia categoriesFor: #agregar:!public! !
+
+!Farmacia methodsFor!
+eliminar:unRem
+conjRem remove: unRem ifAbsent:[^nil].! !
+!Farmacia categoriesFor: #eliminar:!public! !
+
+!Farmacia methodsFor!
+esVacio
+^conjRem isEmpty.! !
+!Farmacia categoriesFor: #esVacio!public! !
+
+!Farmacia methodsFor!
+existe: unRem
+^conjRem includes: unRem.! !
+!Farmacia categoriesFor: #existe:!public! !
+
+!Farmacia methodsFor!
+init: nom
+
+nombre:= nom.
+conjRem := OrderedCollection new.! !
+!Farmacia categoriesFor: #init:!public! !
+
+!Farmacia methodsFor!
+modNombre:otroNom
+
+nombre:=otroNom.! !
+!Farmacia categoriesFor: #modNombre:!public! !
+
+!Farmacia methodsFor!
+recuperar: i
+^conjRem at: i.! !
+!Farmacia categoriesFor: #recuperar:!public! !
+
+!Farmacia methodsFor!
+tamanio
+^conjRem size.! !
+!Farmacia categoriesFor: #tamanio!public! !
+
+!Farmacia methodsFor!
+verNombre
+^nombre! !
+!Farmacia categoriesFor: #verNombre!public! !
+
+!Farmacia methodsFor!
+verTodos
+^conjRem.! !
+!Farmacia categoriesFor: #verTodos!public! !
+
+!Farmacia categoriesFor: #agregar:!public! !
+
+!Farmacia categoriesFor: #eliminar:!public! !
+
+!Farmacia categoriesFor: #esVacio!public! !
+
+!Farmacia categoriesFor: #existe:!public! !
+
+!Farmacia categoriesFor: #init:!public! !
+
+!Farmacia categoriesFor: #modNombre:!public! !
+
+!Farmacia categoriesFor: #recuperar:!public! !
+
+!Farmacia categoriesFor: #tamanio!public! !
+
+!Farmacia categoriesFor: #verNombre!public! !
+
+!Farmacia categoriesFor: #verTodos!public! !
+
+!Farmacia class methodsFor!
+crear:nom
+
+^self new init:nom.
+! !
+!Farmacia class categoriesFor: #crear:!public! !
+
+!Farmacia class categoriesFor: #crear:!public! !
+
+!
+
+"17:37:58, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	opcionElegida:= Prompter prompt: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	(opcionElegida = '1') ifTrue:[
+		Transcript show: 'El número de opcionElegida es: ' opcionElegida; cr.
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+	opcionElegida:=5.
+].
+!
+
+"17:42:25, viernes, 13 de septiembre de 2024: Image saved"!
+
+"17:42:48, viernes, 13 de septiembre de 2024: Image saved"!
+
+"17:43:11, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		Transcript show: 'El número de opcionElegida es: ', opcionElegida; cr.
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+	opcionElegida:=5.
+].
+!
+
+"17:44:15, viernes, 13 de septiembre de 2024: Dolphin Smalltalk Professional started"!
+
+"17:46:46, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		Transcript show: 'El número de opcionElegida es: ', opcionElegida; cr.
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+	opcionElegida:='5'.
+].
+!
+
+"17:47:29, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		Transcript show: 'El número de opcionElegida es: ', opcionElegida; cr.
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+].!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		Transcript show: 'El número de opcionElegida es: ', opcionElegida; cr.
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: 'rem verNombre ].
+	].
+].!
+
+"17:48:32, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		Transcript show: 'El número de opcionElegida es: ', opcionElegida; cr.
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:rem | rem verStock < cantDet].
+		colFarm:= colFarm do:[:rem | 
+							otroPre:=rem verPrecio*20/100.
+							rem modPrecio: otroPre].
+		colFarm do:[:rem | MessageBox notify: 'Se modifico el precio de: ', rem verNombre ].
+	].
+].!
+
+"17:50:02, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		Transcript show: 'El número de opcionElegida es: ', opcionElegida; cr.
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:remedio | remedio verStock < cantDet].
+		colFarm:= colFarm do:[:remedio | 
+							otroPre:=remedio verPrecio*20/100.
+							remedio modPrecio: otroPre].
+		colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ].
+	].
+].!
+
+"17:52:01, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		Transcript show: 'El número de opcionElegida es: ', opcionElegida; cr.
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:remedio | remedio verStock < cantDet].
+		colFarm:= colFarm do:[:remedio | 
+							otroPre:=remedio verPrecio * '20' / '100'.
+							remedio modPrecio: otroPre].
+		colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ].
+	].
+].!
+
+"17:53:07, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		Transcript show: 'El número de opcionElegida es: ', opcionElegida; cr.
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:remedio | remedio verStock < cantDet].
+		colFarm:= colFarm do:[:remedio | 
+							otroPre:= remedio verPrecio.
+							otroPre:= otroPre * 20 / 100.
+							remedio modPrecio: otroPre].
+		colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ].
+	].
+].!
+
+"17:57:05, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		Transcript show: 'El número de opcionElegida es: ', opcionElegida; cr.
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:remedio | remedio verStock < cantDet].
+		colFarm:= colFarm do:[:remedio | 
+							otroPre:= remedio verPrecio.
+							otroPre:= otroPre * 20.
+							otroPre:= otroPre / 100.
+							remedio modPrecio: otroPre].
+		colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ].
+	].
+].!
+
+"17:58:29, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		Transcript show: 'El número de opcionElegida es: ', opcionElegida; cr.
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear: nomRem con: preRem con: stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:remedio | remedio verStock < cantDet].
+		colFarm:= colFarm do:[:remedio |
+							otroPre:= 0.
+							otroPre:= remedio verPrecio.
+							otroPre:= otroPre * 20.
+							otroPre:= otroPre / 100.
+							remedio modPrecio: otroPre].
+		colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ].
+	].
+].!
+
+"17:59:51, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		Transcript show: 'El número de opcionElegida es: ', opcionElegida; cr.
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:remedio | remedio verStock < cantDet].
+		colFarm:= colFarm do:[:remedio |
+							otroPre:= 0.
+							otroPre:= remedio verPrecio.
+							otroPre:= otroPre * 20.
+							otroPre:= otroPre / 100.
+							remedio modPrecio: otroPre].
+		colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ].
+	].
+].!
+
+"18:01:12, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		Transcript show: 'El número de opcionElegida es: ', opcionElegida; cr.
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:remedio | remedio verStock < cantDet].
+		colFarm:= colFarm do:[:remedio |
+							otroPre:= 0.
+							otroPre:= remedio verPrecio.
+							otroPre:= otroPre * 20.
+							otroPre:= otroPre / 100.
+							remedio modPrecio: otroPre].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+].!
+
+"18:02:16, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		Transcript show: 'El número de opcionElegida es: ', opcionElegida; cr.
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:remedio | remedio verStock < cantDet].
+		colFarm:= colFarm do:[:remedio |
+							otroPre:= 0.
+							otroPre:= remedio verPrecio.
+							otroPre:= otroPre * 0.20.
+							remedio modPrecio: otroPre].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+].!
+
+"18:04:18, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		Transcript show: 'El precio es: ', rem verPrecio; cr.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:remedio | remedio verStock < cantDet].
+		colFarm:= colFarm do:[:remedio |
+							otroPre:= 0.
+							otroPre:= remedio verPrecio.
+							otroPre:= otroPre * 0.20.
+							remedio modPrecio: otroPre].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+].!
+
+"18:04:49, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+		Transcript show: 'El precio es: ', rem verPrecio; cr.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:remedio | remedio verStock < cantDet].
+		colFarm:= colFarm do:[:remedio |
+							otroPre:= 0.
+							otroPre:= remedio verPrecio.
+							otroPre:= otroPre * 0.20.
+							remedio modPrecio: otroPre].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+].!
+
+"18:06:06, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+		Transcript show: 'El precio es: ', rem verPrecio; cr.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:remedio | remedio verStock < cantDet].
+		colFarm:= colFarm do:[:remedio |
+							otroPre:= 0.
+							otroPre:= remedio verPrecio.
+							otroPre:= otroPre * 0.20.
+							Transcript show: 'El precio es: ', otroPre; cr.
+							remedio modPrecio: otroPre].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+].!
+
+"18:36:19, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+		Transcript show: 'El precio es: ', rem verPrecio; cr.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm select:[:remedio | remedio verStock < cantDet].
+		colFarm:= colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+							otroPre:= 0.
+							otroPre:= remedio verPrecio.
+							otroPre:= otroPre * 0.20.
+							Transcript show: 'El precio es: ', otroPre; cr.
+							remedio modPrecio: otroPre].
+						].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+].!
+
+"18:37:55, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+		Transcript show: 'El precio es: ', rem verPrecio; cr.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+							otroPre:= 0.
+							otroPre:= remedio verPrecio.
+							otroPre:= otroPre * 0.8.
+							Transcript show: 'El precio es: ', otroPre; cr.
+							remedio modPrecio: otroPre].
+						].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+].!
+
+"18:38:43, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+		Transcript show: 'El precio es: ', rem verPrecio; cr.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+							otroPre:= 0.
+							otroPre:= remedio verPrecio.
+							otroPre:= otroPre * 0,8.
+							Transcript show: 'El precio es: ', otroPre; cr.
+							remedio modPrecio: otroPre].
+						].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+].!
+
+"18:42:56, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+		Transcript show: 'El precio es: ', rem verPrecio; cr.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+							otroPre:= 0.
+							otroPre:= remedio verPrecio.
+							otroPre:= otroPre * 0.8.
+							Transcript show: 'El precio es: ', otroPre; cr.
+							remedio modPrecio: otroPre].
+						].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+].!
+
+"18:43:52, viernes, 13 de septiembre de 2024: Image saved"!
+
+"18:52:48, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+							otroPre:= 0.
+							otroPre:= remedio verPrecio.
+							otroPre:= otroPre * 0.8.
+							Transcript show: 'El precio es: ', otroPre; cr.
+							remedio modPrecio: otroPre]
+						].
+		colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ].
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+"18:56:24, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+							otroPre:= remedio verPrecio.
+							otroPre:= otroPre * 0.8.
+							Transcript show: 'El precio es: ', otroPre; cr.
+							remedio modPrecio: otroPre]].
+		colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ].
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+"18:57:22, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		colFarm:= colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+							otroPre:= remedio verPrecio.
+							otroPre:= otroPre * '0.8'.
+							Transcript show: 'El precio es: ', otroPre; cr.
+							remedio modPrecio: otroPre]].
+		colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ].
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+"18:59:45, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm:= colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+							otroPre:= remedio verPrecio.
+							otroPre:= otroPre * '0.8'.
+							Transcript show: 'El precio es: ', otroPre; cr.
+							remedio modPrecio: otroPre]].
+		colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ].
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+"19:00:54, viernes, 13 de septiembre de 2024: Image saved"!
+
+"19:01:07, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			otroPre:= otroPre * '0.8'.
+			Transcript show: 'El precio es: ', otroPre; cr.
+			remedio modPrecio: otroPre]].
+		colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ].
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+"19:01:49, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			otroPre:= otroPre * 80 / 100.
+			Transcript show: 'El precio es: ', otroPre; cr.
+			remedio modPrecio: otroPre]].
+		colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ].
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+"19:03:26, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			otroPre:= otroPre * 80 / 100.
+			Transcript show: 'El precio es: ', otroPre; cr.
+			remedio modPrecio: otroPre]].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			otroPre:= otroPre * 80 / 100.
+			Transcript show: 'El precio es: ', otroPre; cr.
+			remedio modPrecio: otroPre]].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+"19:05:53, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'otroPre', otroPre ;cr.
+			otroPre:= otroPre * 80 / 100.
+			Transcript show: 'El precio es: ', otroPre; cr.
+			remedio modPrecio: otroPre]].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'otroPre', otroPre ;cr.
+			otroPre:= otroPre*80.
+			Transcript show: 'El precio es: ', otroPre; cr.
+			remedio modPrecio: otroPre]].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'otroPre', otroPre ;cr.
+			"otroPre:= otroPre*80."
+			Transcript show: 'El precio es: ', otroPre; cr.
+			remedio modPrecio: otroPre]].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'otroPre', otroPre ;cr.
+			otroPre = otroPre*80.
+			Transcript show: 'El precio es: ', otroPre; cr.
+			remedio modPrecio: otroPre]].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+"19:09:29, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'otroPre', otroPre ;cr.
+			otroPre:= otroPre*80.
+			Transcript show: 'El precio es: ', otroPre; cr.
+			remedio modPrecio: otroPre]].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			remedio modPrecio: otroPre * 1.2.]].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio |(remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'otroPre', otroPre; cr.
+			remedio modPrecio: otroPre * 1.2.]].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio | (remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'otroPre', otroPre; cr.
+			remedio modPrecio: otroPre * 1.2.]].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio | (remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'otroPre', otroPre; cr.
+			remedio modPrecio: otroPre * 1.2.]].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para no recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio | (remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'otroPre', otroPre; cr.
+			remedio modPrecio: otroPre * 1.2.].].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+"19:20:12, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio | (remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'otroPre', otroPre; cr.
+			remedio modPrecio: otroPre*1.2.]].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio | (remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'HOLA nombre: ', remedio verNombre ;cr.
+			Transcript show: 'otroPre', otroPre; cr.
+			remedio modPrecio: otroPre*1.2.]].
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+"19:23:23, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio | (remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'HOLA nombre: ', remedio verNombre ;cr.
+			Transcript show: 'otroPre', otroPre; cr.
+			remedio modPrecio: otroPre*1.2.].
+			Transcript show: 'HOLA precio remedio ', remedio verPrecio ;cr.].
+			
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+			
+	].
+].!
+
+"19:28:45, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio | (remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'HOLA nombre: ', remedio verNombre ;cr.
+			Transcript show: 'otroPre', otroPre; cr.
+			remedio modPrecio: otroPre*1.2.].
+			Transcript show: 'HOLA precio remedio ', remedio verPrecio ;cr.].
+			
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+		colBag:= farm verTodos.
+		colBag select:[:rem | rem verLab = 'Bagó'].
+		colBag do:[:rem | farm eliminar: rem.].
+			
+	].
+].!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio | (remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'HOLA nombre: ', remedio verNombre ;cr.
+			Transcript show: 'otroPre', otroPre; cr.
+			remedio modPrecio: otroPre*1.2.].
+			Transcript show: 'HOLA precio remedio ', remedio verPrecio ;cr.].
+			
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+		colBag:= farm verTodos.
+		Transcript show: farm verTodos.
+		colBag select:[:rem | rem verLab = 'Bagó'].
+		colBag do:[:rem | farm eliminar: rem.].
+		Transcript show: farm verTodos.
+	].
+].!
+
+"19:31:46, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio | (remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'HOLA nombre: ', remedio verNombre ;cr.
+			Transcript show: 'otroPre', otroPre; cr.
+			remedio modPrecio: otroPre*1.2.].
+			Transcript show: 'HOLA precio remedio ', remedio verPrecio ;cr.].
+			
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+		colBag:= farm verTodos.
+		colBag select:[:rem | rem verLab = 'Bagó'].
+		colBag do:[:rem | Transcript show: 'remedio eliminado: ', rem verNombre. 
+		farm eliminar: rem.].
+	].
+].!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio | (remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'HOLA nombre: ', remedio verNombre ;cr.
+			Transcript show: 'otroPre', otroPre; cr.
+			remedio modPrecio: otroPre*1.2.].
+			Transcript show: 'HOLA precio remedio ', remedio verPrecio ;cr.].
+			
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+		colBag:= farm verTodos.
+		colBag select:[:rem | rem verLab = 'Bagó'].
+		farm eliminar: rem.
+		colBag do:[:rem | Transcript show: 'remedio eliminado: ', rem verNombre.].
+	].
+].!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+		(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio | (remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'HOLA nombre: ', remedio verNombre ;cr.
+			Transcript show: 'otroPre', otroPre; cr.
+			remedio modPrecio: otroPre*1.2.].
+			Transcript show: 'HOLA precio remedio ', remedio verPrecio ;cr.].
+			
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+		(opcionElegida = '3') ifTrue: [
+		colBag:= farm verTodos.
+		colBag select:[:rem | rem verLab = 'Bagó'].
+		colBag do:[:rem | farm eliminar: rem.
+		Transcript show: 'remedio eliminado: ', rem verNombre. ].
+	].
+].!
+
+"19:38:13, viernes, 13 de septiembre de 2024: Image saved"!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '5']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5-Listar remedios. 6- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5' '6').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+	(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio | (remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'HOLA nombre: ', remedio verNombre ;cr.
+			Transcript show: 'otroPre', otroPre; cr.
+			remedio modPrecio: otroPre*1.2.].
+			Transcript show: 'HOLA precio remedio ', remedio verPrecio ;cr.].
+			
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+	(opcionElegida = '3') ifTrue: [
+		colBag:= farm verTodos.
+		colBag select:[:rem | rem verLab = 'Bagó'].
+		colBag do:[:rem | farm eliminar: rem.
+		Transcript show: 'remedio eliminado: ', rem verNombre. ].
+	].
+	(opcionElegida = '4') ifTrue: [
+	col:= farm verTodos.
+	col detect:[:rem | rem verNombre ='lotrial'].
+	col do:[:rem | farm eliminar: rem ].
+	].
+	(opcionElegida = '5') ifTrue: [
+		col:= farm verTodos.
+		col do:[:rem | Transcript show: '-------REMEDIO--------'.
+			Transcript show:'Nombre: ', rem verNombre; cr.
+			Transcript show:'Precio: ', rem verPrecio ; cr.
+			Transcript show:'Stock: ', rem verStock ; cr.
+			Transcript show:'Laboratorio: ', rem verLab ; cr.
+			Transcript show:'------------------------------'; cr.].
+	].
+].!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '6']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5-Listar remedios. 6- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5' '6').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+	(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio | (remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'HOLA nombre: ', remedio verNombre ;cr.
+			Transcript show: 'otroPre', otroPre; cr.
+			remedio modPrecio: otroPre*1.2.].
+			Transcript show: 'HOLA precio remedio ', remedio verPrecio ;cr.].
+			
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+	(opcionElegida = '3') ifTrue: [
+		colBag:= farm verTodos.
+		colBag select:[:rem | rem verLab = 'Bagó'].
+		colBag do:[:rem | farm eliminar: rem.
+		Transcript show: 'remedio eliminado: ', rem verNombre. ].
+	].
+	(opcionElegida = '4') ifTrue: [
+	col:= farm verTodos.
+	col detect:[:rem | rem verNombre ='lotrial'].
+	col do:[:rem | farm eliminar: rem ].
+	].
+	(opcionElegida = '5') ifTrue: [
+		col:= farm verTodos.
+		col do:[:rem | Transcript show: '-------REMEDIO--------'.
+			Transcript show:'Nombre: ', rem verNombre; cr.
+			Transcript show:'Precio: ', rem verPrecio ; cr.
+			Transcript show:'Stock: ', rem verStock ; cr.
+			Transcript show:'Laboratorio: ', rem verLab ; cr.
+			Transcript show:'------------------------------'; cr.].
+	].
+].!
+
+| nom farm opcionElegida nomRem preRem stockRem labRem cantDet rem colFarm otroPre|
+
+nom:= Prompter prompt: 'Ingrese nombre de la farmacia'.
+farm:= Farmacia crear: nom.
+Transcript show: 'Nombre de la farmacia: ', (nom displayString ).
+opcionElegida:= 0.
+
+[opcionElegida ~= '6']whileTrue: [
+	MessageBox notify: 'Ingrese la opción deseada 1- Cargar remedios. 2- Incrementar 20% remedios. 3- Eliminar los remedios de Bagó. 4- Modificar precio lotrial. 5-Listar remedios. 6- Finalizar programa.'.
+	opcionElegida:= ChoicePrompter choices: #('1' '2' '3' '4' '5' '6').
+	(opcionElegida = '1') ifTrue:[
+		nomRem:= Prompter prompt: 'Ingrese nombre del remedio'.
+		preRem:= Prompter prompt: 'Ingrese precio del remedio'.
+		stockRem:= Prompter prompt: 'Ingrese stock del remedio'.
+		labRem:= Prompter prompt: 'Ingrese laboratorio del remedio'.
+		rem:= Remedio crear:nomRem con:preRem con:stockRem con:labRem.
+		farm agregar: rem.
+	].
+	(opcionElegida = '2') ifTrue:[
+		cantDet:= Prompter prompt: 'Ingrese la cantidad de stock minima para recibir aumento'.
+		Transcript show: 'HOLA', cantDet ;cr.
+		colFarm:= farm verTodos.
+		Transcript show: 'HOLA'; cr.
+		colFarm do:[:remedio | (remedio verStock < cantDet) ifTrue: [
+			otroPre:= remedio verPrecio.
+			Transcript show: 'HOLA nombre: ', remedio verNombre ;cr.
+			Transcript show: 'otroPre', otroPre; cr.
+			remedio modPrecio: otroPre*1.2.].
+			Transcript show: 'HOLA precio remedio ', remedio verPrecio ;cr.].
+			
+		"colFarm do:[:remedio | MessageBox notify: 'Se modifico el precio de: ', remedio verNombre ]."
+	].
+	(opcionElegida = '3') ifTrue: [
+		colBag:= farm verTodos.
+		colBag select:[:rem | rem verLab = 'Bagó'].
+		colBag do:[:rem | farm eliminar: rem.
+		Transcript show: 'remedio eliminado: ', rem verNombre. ].
+	].
+	(opcionElegida = '4') ifTrue: [
+	col:= farm verTodos.
+	col detect:[:rem | rem verNombre ='lotrial'].
+	col do:[:rem | col remove: rem ].
+	].
+	(opcionElegida = '5') ifTrue: [
+		col:= farm verTodos.
+		col do:[:rem | Transcript show: '-------REMEDIO--------'.
+			Transcript show:'Nombre: ', rem verNombre; cr.
+			Transcript show:'Precio: ', rem verPrecio ; cr.
+			Transcript show:'Stock: ', rem verStock ; cr.
+			Transcript show:'Laboratorio: ', rem verLab ; cr.
+			Transcript show:'------------------------------'; cr.].
+	].
+].!
+
+"08:23:41, lunes, 16 de septiembre de 2024: Image saved"!
+
+"20:13:23, viernes, 20 de septiembre de 2024: Dolphin Smalltalk Professional started"!
+
+"Filed out from Dolphin Smalltalk 7"!
+
+Object subclass: #Empleado
+	instanceVariableNames: 'nombre horas hijos licencia estCivil'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+Empleado guid: (GUID fromString: '{F56D7916-9875-4673-8F99-8DE4D8F198F5}')!
+
+Empleado guid: (GUID fromString: '{F56D7916-9875-4673-8F99-8DE4D8F198F5}')!
+Empleado comment: ''!
+
+Empleado comment:
+''!
+!Empleado categoriesForClass!Kernel-Objects! !
+!Empleado methodsFor!
+basico 
+"Retorna el sueldo basico del empleado (método abstracto)"
+^self subclassResponsibility! !
+!Empleado categoriesFor: #basico!public! !
+
+!Empleado methodsFor!
+init:unNom con:cantHr con:cantHi con:unaLic con:unEst
+"Inicializa la clase empleado"
+nombre:=unNom.
+horas:=cantHr.
+hijos:=cantHi.
+estCivil:=unEst.
+licencia:=unaLic.! !
+!Empleado categoriesFor: #init:con:con:con:con:!public! !
+
+!Empleado methodsFor!
+modCantH:unaCant
+"Modifica la cantidad de horas del empleado por unaCant"
+horas:=unaCant.! !
+!Empleado categoriesFor: #modCantH:!public! !
+
+!Empleado methodsFor!
+modEstCi:unEst
+"Modifica el estado civil del empleado por unEst"
+estCivil:=unEst.! !
+!Empleado categoriesFor: #modEstCi:!public! !
+
+!Empleado methodsFor!
+modHijos:unaCantH
+"Modifica la cantidad de hijos del empleado por unaCantH"
+hijos:=unaCantH.
+! !
+!Empleado categoriesFor: #modHijos:!public! !
+
+!Empleado methodsFor!
+modLic: unaLic
+"Modifica la licencia del empleado por unaLic"
+licencia:=unaLic.! !
+!Empleado categoriesFor: #modLic:!public! !
+
+!Empleado methodsFor!
+modNom:unNom
+"Modifica el nombre del empleado por unNom"
+nombre:=unNom.! !
+!Empleado categoriesFor: #modNom:!public! !
+
+!Empleado methodsFor!
+salario 
+"Retorna el salario familiar del empleado"
+|s|
+s:= 200*hijos.
+(estCivil = 'Casado')ifTrue:[s:=s+1000].
+^s.! !
+!Empleado categoriesFor: #salario!public! !
+
+!Empleado methodsFor!
+sueldo
+"Retorna el sueldo total del empleado"
+^(self basico + self salario)! !
+!Empleado categoriesFor: #sueldo!public! !
+
+!Empleado methodsFor!
+verCantH
+"Retorna la cantidad de horas del empleado"
+^horas.! !
+!Empleado categoriesFor: #verCantH!public! !
+
+!Empleado methodsFor!
+verEstCi 
+"Retorna el estado civil del elemento del empleado"
+^estCivil.! !
+!Empleado categoriesFor: #verEstCi!public! !
+
+!Empleado methodsFor!
+verHijos
+"Retorna la cantidad de hijos del empleado"
+^hijos.! !
+!Empleado categoriesFor: #verHijos!public! !
+
+!Empleado methodsFor!
+verLic 
+"Retorna la licencia del empleado"
+^licencia.! !
+!Empleado categoriesFor: #verLic!public! !
+
+!Empleado methodsFor!
+verNom
+"Retorna el nombre del empleado"
+^nombre.! !
+!Empleado categoriesFor: #verNom!public! !
+
+!Empleado categoriesFor: #basico!public! !
+
+!Empleado categoriesFor: #init:con:con:con:con:!public! !
+
+!Empleado categoriesFor: #modCantH:!public! !
+
+!Empleado categoriesFor: #modEstCi:!public! !
+
+!Empleado categoriesFor: #modHijos:!public! !
+
+!Empleado categoriesFor: #modLic:!public! !
+
+!Empleado categoriesFor: #modNom:!public! !
+
+!Empleado categoriesFor: #salario!public! !
+
+!Empleado categoriesFor: #sueldo!public! !
+
+!Empleado categoriesFor: #verCantH!public! !
+
+!Empleado categoriesFor: #verEstCi!public! !
+
+!Empleado categoriesFor: #verHijos!public! !
+
+!Empleado categoriesFor: #verLic!public! !
+
+!Empleado categoriesFor: #verNom!public! !
+
+!Empleado class methodsFor!
+crearEmp:unNom con:cantHr con:cantHi con:unaLic con:unEst
+"Crea la clase Empleado"
+^(super new) init:unNom con:cantHr con:cantHi con:unaLic con:unEst
+! !
+!Empleado class categoriesFor: #crearEmp:con:con:con:con:!public! !
+
+!Empleado class categoriesFor: #crearEmp:con:con:con:con:!public! !
+
+!
+
+"Filed out from Dolphin Smalltalk 7"!
+
+Object subclass: #Empresa
+	instanceVariableNames: 'nombre empleados'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+Empresa guid: (GUID fromString: '{685ADCD4-A43C-4BC9-865D-2B9A0F61C487}')!
+
+Empresa guid: (GUID fromString: '{685ADCD4-A43C-4BC9-865D-2B9A0F61C487}')!
+Empresa comment: ''!
+
+Empresa comment:
+''!
+!Empresa categoriesForClass!Kernel-Objects! !
+!Empresa methodsFor!
+agregarEmpleado:emp
+"Agrega un nuevo empleado emp a la Empresa"
+empleados add:emp.! !
+!Empresa categoriesFor: #agregarEmpleado:!public! !
+
+!Empresa methodsFor!
+eliminarEmpleado:emp
+"Elimina un empleado emp de la Empresa"
+empleados remove:emp.! !
+!Empresa categoriesFor: #eliminarEmpleado:!public! !
+
+!Empresa methodsFor!
+esVacia
+"Valida si hay empleados en la empresa"
+^empleados isEmpty.! !
+!Empresa categoriesFor: #esVacia!public! !
+
+!Empresa methodsFor!
+existeEmpleado:emp
+"Valida si está el empleado en la empresa"
+empleados includes:emp.! !
+!Empresa categoriesFor: #existeEmpleado:!public! !
+
+!Empresa methodsFor!
+initEmpresa:unNom
+"Inicializa la clase Empresa"
+nombre:=unNom.
+empleados:=OrderedCollection new.
+! !
+!Empresa categoriesFor: #initEmpresa:!public! !
+
+!Empresa methodsFor!
+modNombre:unNom
+"Modifica el nombre de la empresa por unNom"
+nombre:=unNom.! !
+!Empresa categoriesFor: #modNombre:!public! !
+
+!Empresa methodsFor!
+recuperarEmpleado: i
+"Retorna el i-esimo empleado"
+empleados at:i.! !
+!Empresa categoriesFor: #recuperarEmpleado:!public! !
+
+!Empresa methodsFor!
+verEmpleados
+"Retorna todos los empleados de la Empresa"
+^empleados! !
+!Empresa categoriesFor: #verEmpleados!public! !
+
+!Empresa methodsFor!
+verNombre
+^nombre.! !
+!Empresa categoriesFor: #verNombre!public! !
+
+!Empresa methodsFor!
+verTotalEmpleados
+"Retorna el total de empleados que tiene la Empresa"
+^empleados size.! !
+!Empresa categoriesFor: #verTotalEmpleados!public! !
+
+!Empresa categoriesFor: #agregarEmpleado:!public! !
+
+!Empresa categoriesFor: #eliminarEmpleado:!public! !
+
+!Empresa categoriesFor: #esVacia!public! !
+
+!Empresa categoriesFor: #existeEmpleado:!public! !
+
+!Empresa categoriesFor: #initEmpresa:!public! !
+
+!Empresa categoriesFor: #modNombre:!public! !
+
+!Empresa categoriesFor: #recuperarEmpleado:!public! !
+
+!Empresa categoriesFor: #verEmpleados!public! !
+
+!Empresa categoriesFor: #verNombre!public! !
+
+!Empresa categoriesFor: #verTotalEmpleados!public! !
+
+!Empresa class methodsFor!
+crearEmpresa: unNom
+"Crea la clase empresa"
+^(super new) initEmpresa:unNom! !
+!Empresa class categoriesFor: #crearEmpresa:!public! !
+
+!Empresa class categoriesFor: #crearEmpresa:!public! !
+
+!
+
+"Filed out from Dolphin Smalltalk 7"!
+
+Empleado subclass: #Permanente
+	instanceVariableNames: 'antiguedad'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+Permanente guid: (GUID fromString: '{FB185B05-59E1-41D9-BF49-168051CA1036}')!
+
+Permanente guid: (GUID fromString: '{FB185B05-59E1-41D9-BF49-168051CA1036}')!
+Permanente comment: ''!
+
+Permanente comment:
+''!
+!Permanente categoriesForClass!Kernel-Objects! !
+!Permanente methodsFor!
+basico 
+"Retorna el sueldo basico del empleado permanente"
+^300*horas + (antiguedad * (300 * horas* 0.10)).! !
+!Permanente categoriesFor: #basico!public! !
+
+!Permanente methodsFor!
+init:unNom con:ch con:cantH con:unaLic con:unEst con: unaAnt
+super init: unNom con: ch con: cantH con: unaLic con: unEst.
+antiguedad:=unaAnt.! !
+!Permanente categoriesFor: #init:con:con:con:con:con:!public! !
+
+!Permanente methodsFor!
+modAntig:unaAnt
+"Modifica la antigüedad por unaAnt"
+antiguedad:=unaAnt.! !
+!Permanente categoriesFor: #modAntig:!public! !
+
+!Permanente methodsFor!
+verAntig 
+"Retorna la antigüedad del empleado"
+^antiguedad.! !
+!Permanente categoriesFor: #verAntig!public! !
+
+!Permanente categoriesFor: #basico!public! !
+
+!Permanente categoriesFor: #init:con:con:con:con:con:!public! !
+
+!Permanente categoriesFor: #modAntig:!public! !
+
+!Permanente categoriesFor: #verAntig!public! !
+
+!Permanente class methodsFor!
+crear:unNom con: ch con:cantH con: unaLic con: unEst con: unaAnt
+^(super new) init:unNom con:ch con:cantH con:unaLic con:unEst con: unaAnt.
+! !
+!Permanente class categoriesFor: #crear:con:con:con:con:con:!public! !
+
+!Permanente class categoriesFor: #crear:con:con:con:con:con:!public! !
+
+!
+
+"Filed out from Dolphin Smalltalk 7"!
+
+Empleado subclass: #Temporario
+	instanceVariableNames: 'contrato'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+Temporario guid: (GUID fromString: '{D197B204-CBAE-4EDC-891A-89CB52F379B1}')!
+
+Temporario guid: (GUID fromString: '{D197B204-CBAE-4EDC-891A-89CB52F379B1}')!
+Temporario comment: ''!
+
+Temporario comment:
+''!
+!Temporario categoriesForClass!Kernel-Objects! !
+!Temporario methodsFor!
+basico
+"Retorna el sueldo basico del empleado temporario"
+^200*horas! !
+!Temporario categoriesFor: #basico!public! !
+
+!Temporario methodsFor!
+init:unNom con: ch con:cantH con:unaLic con:unEst con: unCont
+"Inicializa la clase Temporario"
+super init:unNom con: ch con:cantH con:unaLic con:unEst.
+contrato:=unCont.! !
+!Temporario categoriesFor: #init:con:con:con:con:con:!public! !
+
+!Temporario methodsFor!
+modCont:unCont
+"Modifica el contrato por unCont"
+contrato := unCont.! !
+!Temporario categoriesFor: #modCont:!public! !
+
+!Temporario methodsFor!
+verCont
+"Retorna el contrato del empleado"
+^contrato.! !
+!Temporario categoriesFor: #verCont!public! !
+
+!Temporario categoriesFor: #basico!public! !
+
+!Temporario categoriesFor: #init:con:con:con:con:con:!public! !
+
+!Temporario categoriesFor: #modCont:!public! !
+
+!Temporario categoriesFor: #verCont!public! !
+
+!Temporario class methodsFor!
+crear:unNom con:ch con:cantH con:unaLic con:unEst con:unCont
+^super new init:unNom con: ch con:cantH con:unaLic con:unEst con: unCont! !
+!Temporario class categoriesFor: #crear:con:con:con:con:con:!public! !
+
+!Temporario class categoriesFor: #crear:con:con:con:con:con:!public! !
+
+!
+
+opcion:=0.!
+
+opcion:=0.!
+
+opcion:=0.!
+
+opcion:=0.!
+
+opcion:=0.!
+
+| emp menu opcion nombre horas hijos licencia estCivil antiguedad contrato tipo |
+
+emp:= Empresa crearEmpresa: 'Empresa x'.
+menu:=0.
+opcion:=0.
+
+[opcion ~= 'Finalizar aplicación']whileTrue: [
+	opcion:= ChoicePrompter choices: #('Cargar empleado' 'Listar empleados' 'Pagar sueldos empleados temporarios' 'Finalizar aplicación').
+	(opcion = 'Cargar empleado') ifTrue: [
+		nombre:=Prompter prompt: 'Ingresar nombre del empleado'.
+		horas:=Prompter prompt: 'Ingresar horas del empleado'.
+		hijos:=Prompter prompt: 'Ingresar hijos del empleado'.
+		licencia:=Prompter prompt: 'Ingresar licencia del empleado'.
+		estCivil:=Prompter prompt: 'Ingresar estado civil del empleado'.
+		tipo:=ChoicePrompter choices: #('Temporario' 'Permanente').
+		(tipo = 'Temporario') ifTrue: [
+			contrato:='Ingresar contrato del empleado'.
+			empleado:= Temporario crear: nombre con: horas con: hijos con: licencia con: estCivil con: contrato.
+		].
+		(tipo = 'Permanente')ifTrue: [
+			antiguedad:=Prompter prompt: 'Ingresar antiguedad del empleado'.
+			empleado:= Permanente crear: nombre con: horas con: hijos con: licencia con: estCivil con: antiguedad.
+		].
+		emp agregarEmpleado: empleado.
+	].
+].
+!
+
+| emp menu opcion nombre horas hijos licencia estCivil antiguedad contrato tipo col |
+
+emp:= Empresa crearEmpresa: 'Empresa x'.
+menu:=0.
+opcion:=0.
+
+[opcion ~= 'Finalizar aplicación']whileTrue: [
+	opcion:= ChoicePrompter choices: #('Cargar empleado' 'Listar empleados' 'Pagar sueldos empleados temporarios' 'Finalizar aplicación').
+	(opcion = 'Cargar empleado') ifTrue: [
+		nombre:=Prompter prompt: 'Ingresar nombre del empleado'.
+		horas:=Prompter prompt: 'Ingresar horas del empleado'.
+		hijos:=Prompter prompt: 'Ingresar hijos del empleado'.
+		licencia:=Prompter prompt: 'Ingresar licencia del empleado'.
+		estCivil:=Prompter prompt: 'Ingresar estado civil del empleado'.
+		tipo:=ChoicePrompter choices: #('Temporario' 'Permanente').
+		(tipo = 'Temporario') ifTrue: [
+			contrato:='Ingresar contrato del empleado'.
+			empleado:= Temporario crear: nombre con: horas con: hijos con: licencia con: estCivil con: contrato.
+		].
+		(tipo = 'Permanente')ifTrue: [
+			antiguedad:=Prompter prompt: 'Ingresar antiguedad del empleado'.
+			empleado:= Permanente crear: nombre con: horas con: hijos con: licencia con: estCivil con: antiguedad.
+		].
+		emp agregarEmpleado: empleado.
+	].
+
+	(opcion='Listar empleados')ifTrue: [
+		col:= emp verTodos.
+		col do:[:e | Transcript show:'----------Empleado----------'.
+		Transcript show:'Nombre: ', e verNom.
+		Transcript  show:'Horas: ', e verCantH.
+		Transcript  show:'Hijos: ', e verHijos.
+		Transcript  show:'Licencia: ', e verLic.
+		Transcript  show:'Estado civil: ', e verEstCi.
+		(e class = 'Temporario')ifTrue: [
+			Transcript  show:'Contrato: ', e verCont.].
+		(e class = 'Permanente')ifTrue: [
+			Transcript  show:'Antiguedad: ', e verAntig ].
+		]
+	]
+].
+!
+
+| emp menu opcion nombre horas hijos licencia estCivil antiguedad contrato tipo col |
+
+emp:= Empresa crearEmpresa: 'Empresa x'.
+menu:=0.
+opcion:=0.
+
+[opcion ~= 'Finalizar aplicación']whileTrue: [
+	opcion:= ChoicePrompter choices: #('Cargar empleado' 'Listar empleados' 'Pagar sueldos empleados temporarios' 'Finalizar aplicación').
+	(opcion = 'Cargar empleado') ifTrue: [
+		nombre:=Prompter prompt: 'Ingresar nombre del empleado'.
+		horas:=Prompter prompt: 'Ingresar horas del empleado'.
+		hijos:=Prompter prompt: 'Ingresar hijos del empleado'.
+		licencia:=Prompter prompt: 'Ingresar licencia del empleado'.
+		estCivil:=Prompter prompt: 'Ingresar estado civil del empleado'.
+		tipo:=ChoicePrompter choices: #('Temporario' 'Permanente').
+		(tipo = 'Temporario') ifTrue: [
+			contrato:='Ingresar contrato del empleado'.
+			empleado:= Temporario crear: nombre con: horas con: hijos con: licencia con: estCivil con: contrato.
+		].
+		(tipo = 'Permanente')ifTrue: [
+			antiguedad:=Prompter prompt: 'Ingresar antiguedad del empleado'.
+			empleado:= Permanente crear: nombre con: horas con: hijos con: licencia con: estCivil con: antiguedad.
+		].
+		emp agregarEmpleado: empleado.
+	].
+
+	(opcion='Listar empleados')ifTrue: [
+		col:= emp verTodos.
+		col do:[:e | Transcript show:'----------Empleado----------'.
+		Transcript show:'Nombre: ', e verNom.
+		Transcript  show:'Horas: ', e verCantH.
+		Transcript  show:'Hijos: ', e verHijos.
+		Transcript  show:'Licencia: ', e verLic.
+		Transcript  show:'Estado civil: ', e verEstCi.
+		(e class = 'Temporario')ifTrue: [
+			Transcript  show:'Contrato: ', e verCont.].
+		(e class = 'Permanente')ifTrue: [
+			Transcript  show:'Antiguedad: ', e verAntig.].
+		].
+	].
+].
+!
+
+| emp opcion nombre horas hijos licencia estCivil antiguedad contrato tipo col |
+
+emp:= Empresa crearEmpresa: 'Empresa x'.
+opcion:=0.
+
+[opcion ~= 'Finalizar aplicación']whileTrue: [
+	opcion:= ChoicePrompter choices: #('Cargar empleado' 'Listar empleados' 'Pagar sueldos empleados temporarios' 'Finalizar aplicación').
+	(opcion = 'Cargar empleado') ifTrue: [
+		nombre:=Prompter prompt: 'Ingresar nombre del empleado'.
+		horas:=Prompter prompt: 'Ingresar horas del empleado'.
+		hijos:=Prompter prompt: 'Ingresar hijos del empleado'.
+		licencia:=Prompter prompt: 'Ingresar licencia del empleado'.
+		estCivil:=Prompter prompt: 'Ingresar estado civil del empleado'.
+		tipo:=ChoicePrompter choices: #('Temporario' 'Permanente').
+		(tipo = 'Temporario') ifTrue: [
+			contrato:='Ingresar contrato del empleado'.
+			empleado:= Temporario crear: nombre con: horas con: hijos con: licencia con: estCivil con: contrato.
+		].
+		(tipo = 'Permanente')ifTrue: [
+			antiguedad:=Prompter prompt: 'Ingresar antiguedad del empleado'.
+			empleado:= Permanente crear: nombre con: horas con: hijos con: licencia con: estCivil con: antiguedad.
+		].
+		emp agregarEmpleado: empleado.
+	].
+
+	(opcion='Listar empleados')ifTrue: [
+		col:= emp verTodos.
+		col do:[:e | Transcript show:'----------Empleado----------'.
+		Transcript show:'Nombre: ', e verNom.
+		Transcript  show:'Horas: ', e verCantH.
+		Transcript  show:'Hijos: ', e verHijos.
+		Transcript  show:'Licencia: ', e verLic.
+		Transcript  show:'Estado civil: ', e verEstCi.
+		(e class = 'Temporario')ifTrue: [
+			Transcript  show:'Contrato: ', e verCont.].
+		(e class = 'Permanente')ifTrue: [
+			Transcript  show:'Antiguedad: ', e verAntig.].
+		].
+	].
+].
+!
+
+| emp opcion nombre horas hijos licencia estCivil antiguedad contrato tipo col |
+
+emp:= Empresa crearEmpresa: 'Empresa x'.
+opcion:=0.
+
+[opcion ~= 'Finalizar aplicación']whileTrue: [
+	opcion:= ChoicePrompter choices: #('Cargar empleado' 'Listar empleados' 'Pagar sueldos empleados temporarios' 'Finalizar aplicación').
+	(opcion = 'Cargar empleado') ifTrue: [
+		nombre:=Prompter prompt: 'Ingresar nombre del empleado'.
+		horas:=Prompter prompt: 'Ingresar horas del empleado'.
+		hijos:=Prompter prompt: 'Ingresar hijos del empleado'.
+		licencia:=Prompter prompt: 'Ingresar licencia del empleado'.
+		estCivil:=Prompter prompt: 'Ingresar estado civil del empleado'.
+		tipo:=ChoicePrompter choices: #('Temporario' 'Permanente').
+		(tipo = 'Temporario') ifTrue: [
+			contrato:=Prompter prompt: 'Ingresar contrato del empleado'.
+			empleado:= Temporario crear: nombre con: horas con: hijos con: licencia con: estCivil con: contrato.
+		].
+		(tipo = 'Permanente')ifTrue: [
+			antiguedad:=Prompter prompt: 'Ingresar antiguedad del empleado'.
+			empleado:= Permanente crear: nombre con: horas con: hijos con: licencia con: estCivil con: antiguedad.
+		].
+		emp agregarEmpleado: empleado.
+	].
+
+	(opcion='Listar empleados')ifTrue: [
+		col:= emp verTodos.
+		col do:[:e | Transcript show:'----------Empleado----------'.
+		Transcript show:'Nombre: ', e verNom printString; cr.
+		Transcript  show:'Horas: ', e verCantH printString; cr.
+		Transcript  show:'Hijos: ', e verHijos printString; cr.
+		Transcript  show:'Licencia: ', e verLic printString; cr.
+		Transcript  show:'Estado civil: ', e verEstCi printString; cr.
+		(e class = 'Temporario')ifTrue: [
+			Transcript  show:'Contrato: ', e verCont printString; cr].
+		(e class = 'Permanente')ifTrue: [
+			Transcript  show:'Antiguedad: ', e verAntig printString; cr].
+		].
+	].
+].
+!
+
+| emp opcion nombre horas hijos licencia estCivil antiguedad contrato tipo |
+
+emp:= Empresa crearEmpresa: 'Empresa x'.
+opcion:=0.
+
+[opcion ~= 'Finalizar aplicación']whileTrue: [
+	opcion:= ChoicePrompter choices: #('Cargar empleado' 'Listar empleados' 'Pagar sueldos empleados temporarios' 'Finalizar aplicación').
+	(opcion = 'Cargar empleado') ifTrue: [
+		nombre:=Prompter prompt: 'Ingresar nombre del empleado'.
+		horas:=Prompter prompt: 'Ingresar horas del empleado'.
+		hijos:=Prompter prompt: 'Ingresar hijos del empleado'.
+		licencia:=Prompter prompt: 'Ingresar licencia del empleado'.
+		estCivil:=Prompter prompt: 'Ingresar estado civil del empleado'.
+		tipo:=ChoicePrompter choices: #('Temporario' 'Permanente').
+		(tipo = 'Temporario') ifTrue: [
+			contrato:=Prompter prompt: 'Ingresar contrato del empleado'.
+			empleado:= Temporario crear: nombre con: horas con: hijos con: licencia con: estCivil con: contrato.
+		].
+		(tipo = 'Permanente')ifTrue: [
+			antiguedad:=Prompter prompt: 'Ingresar antiguedad del empleado'.
+			empleado:= Permanente crear: nombre con: horas con: hijos con: licencia con: estCivil con: antiguedad.
+		].
+		emp agregarEmpleado: empleado.
+	].
+
+	(opcion='Listar empleados')ifTrue: [
+		|col|
+		col:= emp verTodos.
+		col do:[:e | Transcript show:'----------Empleado----------'.
+		Transcript show:'Nombre: ', e verNom printString; cr.
+		Transcript  show:'Horas: ', e verCantH printString; cr.
+		Transcript  show:'Hijos: ', e verHijos printString; cr.
+		Transcript  show:'Licencia: ', e verLic printString; cr.
+		Transcript  show:'Estado civil: ', e verEstCi printString; cr.
+		(e class = 'Temporario')ifTrue: [
+			Transcript  show:'Contrato: ', e verCont printString; cr.].
+		(e class = 'Permanente')ifTrue: [
+			Transcript  show:'Antiguedad: ', e verAntig printString; cr.].
+		].
+	].
+].
+!
+
+| emp opcion nombre horas hijos licencia estCivil antiguedad contrato tipo |
+
+emp:= Empresa crearEmpresa: 'Empresa x'.
+opcion:=0.
+
+[opcion ~= 'Finalizar aplicación']whileTrue: [
+	opcion:= ChoicePrompter choices: #('Cargar empleado' 'Listar empleados' 'Pagar sueldos empleados temporarios' 'Finalizar aplicación').
+	(opcion = 'Cargar empleado') ifTrue: [
+		nombre:=Prompter prompt: 'Ingresar nombre del empleado'.
+		horas:=Prompter prompt: 'Ingresar horas del empleado'.
+		hijos:=Prompter prompt: 'Ingresar hijos del empleado'.
+		licencia:=Prompter prompt: 'Ingresar licencia del empleado'.
+		estCivil:=Prompter prompt: 'Ingresar estado civil del empleado'.
+		tipo:=ChoicePrompter choices: #('Temporario' 'Permanente').
+		(tipo = 'Temporario') ifTrue: [
+			contrato:=Prompter prompt: 'Ingresar contrato del empleado'.
+			empleado:= Temporario crear: nombre con: horas con: hijos con: licencia con: estCivil con: contrato.
+		].
+		(tipo = 'Permanente')ifTrue: [
+			antiguedad:=Prompter prompt: 'Ingresar antiguedad del empleado'.
+			empleado:= Permanente crear: nombre con: horas con: hijos con: licencia con: estCivil con: antiguedad.
+		].
+		emp agregarEmpleado: empleado.
+	].
+
+	(opcion='Listar empleados')ifTrue: [
+		|col|
+		col:= emp verTotalEmpleados .
+		col do:[:e | Transcript show:'----------Empleado----------'.
+		Transcript show:'Nombre: ', e verNom printString; cr.
+		Transcript  show:'Horas: ', e verCantH printString; cr.
+		Transcript  show:'Hijos: ', e verHijos printString; cr.
+		Transcript  show:'Licencia: ', e verLic printString; cr.
+		Transcript  show:'Estado civil: ', e verEstCi printString; cr.
+		(e class = 'Temporario')ifTrue: [
+			Transcript  show:'Contrato: ', e verCont printString; cr.].
+		(e class = 'Permanente')ifTrue: [
+			Transcript  show:'Antiguedad: ', e verAntig printString; cr.].
+		].
+	].
+].
+!
+
+| emp opcion nombre horas hijos licencia estCivil antiguedad contrato tipo |
+
+emp:= Empresa crearEmpresa: 'Empresa x'.
+opcion:=0.
+
+[opcion ~= 'Finalizar aplicación']whileTrue: [
+	opcion:= ChoicePrompter choices: #('Cargar empleado' 'Listar empleados' 'Pagar sueldos empleados temporarios' 'Finalizar aplicación').
+	(opcion = 'Cargar empleado') ifTrue: [
+		nombre:=Prompter prompt: 'Ingresar nombre del empleado'.
+		horas:=Prompter prompt: 'Ingresar horas del empleado'.
+		hijos:=Prompter prompt: 'Ingresar hijos del empleado'.
+		licencia:=Prompter prompt: 'Ingresar licencia del empleado'.
+		estCivil:=Prompter prompt: 'Ingresar estado civil del empleado'.
+		tipo:=ChoicePrompter choices: #('Temporario' 'Permanente').
+		(tipo = 'Temporario') ifTrue: [
+			contrato:=Prompter prompt: 'Ingresar contrato del empleado'.
+			empleado:= Temporario crear: nombre con: horas con: hijos con: licencia con: estCivil con: contrato.
+		].
+		(tipo = 'Permanente')ifTrue: [
+			antiguedad:=Prompter prompt: 'Ingresar antiguedad del empleado'.
+			empleado:= Permanente crear: nombre con: horas con: hijos con: licencia con: estCivil con: antiguedad.
+		].
+		emp agregarEmpleado: empleado.
+	].
+
+	(opcion='Listar empleados')ifTrue: [
+		|col|
+		col:= emp verTotalEmpleados .
+		col do:[:e | Transcript show:'----------Empleado----------'.
+		Transcript show:'Nombre: ', e verNom printString; cr.
+		Transcript show:'Horas: ', e verCantH printString; cr.
+		Transcript show:'Hijos: ', e verHijos printString; cr.
+		Transcript show:'Licencia: ', e verLic printString; cr.
+		Transcript show:'Estado civil: ', e verEstCi printString; cr.
+		(e class = 'Temporario')ifTrue: [
+			Transcript show:'Contrato: ', e verCont printString; cr.].
+		(e class = 'Permanente')ifTrue: [
+			Transcript show:'Antiguedad: ', e verAntig printString; cr.].
+		].
+	].
+].
+!
+
+| emp opcion nombre horas hijos licencia estCivil antiguedad contrato tipo |
+
+emp:= Empresa crearEmpresa: 'Empresa x'.
+opcion:=0.
+
+[opcion ~= 'Finalizar aplicación']whileTrue: [
+	opcion:= ChoicePrompter choices: #('Cargar empleado' 'Listar empleados' 'Pagar sueldos empleados temporarios' 'Finalizar aplicación').
+	(opcion = 'Cargar empleado') ifTrue: [
+		nombre:=Prompter prompt: 'Ingresar nombre del empleado'.
+		horas:=Prompter prompt: 'Ingresar horas del empleado'.
+		hijos:=Prompter prompt: 'Ingresar hijos del empleado'.
+		licencia:=Prompter prompt: 'Ingresar licencia del empleado'.
+		estCivil:=Prompter prompt: 'Ingresar estado civil del empleado'.
+		tipo:=ChoicePrompter choices: #('Temporario' 'Permanente').
+		(tipo = 'Temporario') ifTrue: [
+			contrato:=Prompter prompt: 'Ingresar contrato del empleado'.
+			empleado:= Temporario crear: nombre con: horas con: hijos con: licencia con: estCivil con: contrato.
+		].
+		(tipo = 'Permanente')ifTrue: [
+			antiguedad:=Prompter prompt: 'Ingresar antiguedad del empleado'.
+			empleado:= Permanente crear: nombre con: horas con: hijos con: licencia con: estCivil con: antiguedad.
+		].
+		emp agregarEmpleado: empleado.
+	].
+
+	(opcion='Listar empleados')ifTrue: [
+		| col |
+		col:= emp verTotalEmpleados .
+		col do:[:e | Transcript show:'----------Empleado----------'.
+		Transcript show:'Nombre: ', e verNom printString; cr.
+		Transcript show:'Horas: ', e verCantH printString; cr.
+		Transcript show:'Hijos: ', e verHijos printString; cr.
+		Transcript show:'Licencia: ', e verLic printString; cr.
+		Transcript show:'Estado civil: ', e verEstCi printString; cr.
+		(e class = 'Temporario')ifTrue: [
+			Transcript show:'Contrato: ', e verCont printString; cr.].
+		(e class = 'Permanente')ifTrue: [
+			Transcript show:'Antiguedad: ', e verAntig printString; cr.].
+		Transcript show: '---------------------------------'; cr.
+		].
+	].
+].
+!
+
+| emp opcion nombre horas hijos licencia estCivil antiguedad contrato tipo |
+
+emp:= Empresa crearEmpresa: 'Empresa x'.
+opcion:=0.
+
+[opcion ~= 'Finalizar aplicación']whileTrue: [
+	opcion:= ChoicePrompter choices: #('Cargar empleado' 'Listar empleados' 'Pagar sueldos empleados temporarios' 'Finalizar aplicación').
+	(opcion = 'Cargar empleado') ifTrue: [
+		nombre:=Prompter prompt: 'Ingresar nombre del empleado'.
+		horas:=Prompter prompt: 'Ingresar horas del empleado'.
+		hijos:=Prompter prompt: 'Ingresar hijos del empleado'.
+		licencia:=Prompter prompt: 'Ingresar licencia del empleado'.
+		estCivil:=Prompter prompt: 'Ingresar estado civil del empleado'.
+		tipo:=ChoicePrompter choices: #('Temporario' 'Permanente').
+		Transcript show:'estado civil', estCivil printString;cr.
+		(tipo = 'Temporario') ifTrue: [
+			contrato:=Prompter prompt: 'Ingresar contrato del empleado'.
+			empleado:= Temporario crear: nombre con: horas con: hijos con: licencia con: estCivil con: contrato.
+		].
+		(tipo = 'Permanente')ifTrue: [
+			antiguedad:=Prompter prompt: 'Ingresar antiguedad del empleado'.
+			empleado:= Permanente crear: nombre con: horas con: hijos con: licencia con: estCivil con: antiguedad.
+		].
+		emp agregarEmpleado: empleado.
+	].
+
+	(opcion='Listar empleados')ifTrue: [
+		| col |
+		col:= emp verTotalEmpleados.
+		col do:[:e | Transcript show:'----------Empleado----------'.
+		Transcript show:'Nombre: ', e verNom printString; cr.
+		Transcript show:'Horas: ', e verCantH printString; cr.
+		Transcript show:'Hijos: ', e verHijos printString; cr.
+		Transcript show:'Licencia: ', e verLic printString; cr.
+		Transcript show:'Estado civil: ', e verEstCi printString; cr.
+		(e class = 'Temporario')ifTrue: [
+			Transcript show:'Contrato: ', e verCont printString; cr.].
+		(e class = 'Permanente')ifTrue: [
+			Transcript show:'Antiguedad: ', e verAntig printString; cr.].
+		Transcript show: '---------------------------------'; cr.
+		].
+	].
+].
+!
+
+| emp opcion nombre horas hijos licencia estCivil antiguedad contrato tipo |
+
+emp:= Empresa crearEmpresa: 'Empresa x'.
+opcion:=0.
+
+[opcion ~= 'Finalizar aplicación']whileTrue: [
+	opcion:= ChoicePrompter choices: #('Cargar empleado' 'Listar empleados' 'Pagar sueldos empleados temporarios' 'Finalizar aplicación').
+	(opcion = 'Cargar empleado') ifTrue: [
+		nombre:=Prompter prompt: 'Ingresar nombre del empleado'.
+		horas:=Prompter prompt: 'Ingresar horas del empleado'.
+		hijos:=Prompter prompt: 'Ingresar hijos del empleado'.
+		licencia:=Prompter prompt: 'Ingresar licencia del empleado'.
+		estCivil:=Prompter prompt: 'Ingresar estado civil del empleado'.
+		tipo:=ChoicePrompter choices: #('Temporario' 'Permanente').
+		Transcript show:'estado civil', estCivil printString;cr.
+		(tipo = 'Temporario') ifTrue: [
+			contrato:=Prompter prompt: 'Ingresar contrato del empleado'.
+			empleado:= Temporario crear: nombre con: horas con: hijos con: licencia con: estCivil con: contrato.
+		].
+		(tipo = 'Permanente')ifTrue: [
+			antiguedad:=Prompter prompt: 'Ingresar antiguedad del empleado'.
+			empleado:= Permanente crear: nombre con: horas con: hijos con: licencia con: estCivil con: antiguedad.
+		].
+		emp agregarEmpleado: empleado.
+	].
+
+	(opcion='Listar empleados')ifTrue: [
+		| col |
+		col:= emp verTotalEmpleados.
+		col do:[:e | Transcript show:'----------Empleado----------'.
+		Transcript show:'Nombre: ', e verNom printString; cr.
+		Transcript show:'Horas: ', e verCantH printString; cr.
+		Transcript show:'Hijos: ', e verHijos printString; cr.
+		Transcript show:'Licencia: ', e verLic printString; cr.
+		Transcript show:'Estado civil: ', e verEstCi printString; cr.
+		(e class = Temporario)ifTrue: [
+			Transcript show:'Contrato: ', e verCont printString; cr.].
+		(e class = Permanente)ifTrue: [
+			Transcript show:'Antiguedad: ', e verAntig printString; cr.].
+		Transcript show: '---------------------------------'; cr.
+		].
+	].
+].
+!
+
+| emp opcion nombre horas hijos licencia estCivil antiguedad contrato tipo col |
+
+emp:= Empresa crearEmpresa: 'Empresa x'.
+
+[opcion ~= 'Finalizar aplicación']whileTrue: [
+	opcion:= ChoicePrompter choices: #('Cargar empleado' 'Listar empleados' 'Pagar sueldos empleados temporarios' 'Finalizar aplicación').
+	(opcion = 'Cargar empleado') ifTrue: [
+		nombre:=Prompter prompt: 'Ingresar nombre del empleado'.
+		horas:=Prompter prompt: 'Ingresar horas del empleado'.
+		hijos:=Prompter prompt: 'Ingresar hijos del empleado'.
+		licencia:=Prompter prompt: 'Ingresar licencia del empleado'.
+		estCivil:=Prompter prompt: 'Ingresar estado civil del empleado'.
+		tipo:=ChoicePrompter choices: #('Temporario' 'Permanente').
+		Transcript show:'estado civil', estCivil printString;cr.
+		(tipo = 'Temporario') ifTrue: [
+			contrato:=Prompter prompt: 'Ingresar contrato del empleado'.
+			empleado:= Temporario crear: nombre con: horas con: hijos con: licencia con: estCivil con: contrato.
+		].
+		(tipo = 'Permanente')ifTrue: [
+			antiguedad:=Prompter prompt: 'Ingresar antiguedad del empleado'.
+			empleado:= Permanente crear: nombre con: horas con: hijos con: licencia con: estCivil con: antiguedad.
+		].
+		emp agregarEmpleado: empleado.
+		Transcript show:'Nombre: ', empleado verNom;cr.
+	].
+
+	(opcion='Listar empleados')ifTrue: [
+		col:= emp verTotalEmpleados.
+		col do:[:e | Transcript show:'----------Empleado----------'.
+		Transcript show:'Nombre: ', e verNom printString; cr.
+		Transcript show:'Horas: ', e verCantH printString; cr.
+		Transcript show:'Hijos: ', e verHijos printString; cr.
+		Transcript show:'Licencia: ', e verLic printString; cr.
+		Transcript show:'Estado civil: ', e verEstCi printString; cr.
+		(e class = Temporario)ifTrue: [
+			Transcript show:'Contrato: ', e verCont printString; cr.].
+		(e class = Permanente)ifTrue: [
+			Transcript show:'Antiguedad: ', e verAntig printString; cr.].
+		Transcript show: '---------------------------------'; cr.
+		].
+	].
+].
+!
+
+| emp opcion nombre horas hijos licencia estCivil antiguedad contrato tipo col |
+
+emp:= Empresa crearEmpresa: 'Empresa x'.
+
+[opcion ~= 'Finalizar aplicación']whileTrue: [
+	opcion:= ChoicePrompter choices: #('Cargar empleado' 'Listar empleados' 'Pagar sueldos empleados temporarios' 'Finalizar aplicación').
+	(opcion = 'Cargar empleado') ifTrue: [
+		nombre:=Prompter prompt: 'Ingresar nombre del empleado'.
+		horas:=Prompter prompt: 'Ingresar horas del empleado'.
+		hijos:=Prompter prompt: 'Ingresar hijos del empleado'.
+		licencia:=Prompter prompt: 'Ingresar licencia del empleado'.
+		estCivil:=Prompter prompt: 'Ingresar estado civil del empleado'.
+		tipo:=ChoicePrompter choices: #('Temporario' 'Permanente').
+		Transcript show:'estado civil', estCivil printString;cr.
+		(tipo = 'Temporario') ifTrue: [
+			contrato:=Prompter prompt: 'Ingresar contrato del empleado'.
+			empleado:= Temporario crear: nombre con: horas con: hijos con: licencia con: estCivil con: contrato.
+		].
+		(tipo = 'Permanente')ifTrue: [
+			antiguedad:=Prompter prompt: 'Ingresar antiguedad del empleado'.
+			empleado:= Permanente crear: nombre con: horas con: hijos con: licencia con: estCivil con: antiguedad.
+		].
+		emp agregarEmpleado: empleado.
+		Transcript show:'Nombre: ', empleado verNom;cr.
+	].
+
+	(opcion='Listar empleados')ifTrue: [
+		col:= emp verEmpleados.
+		col do:[:e | Transcript show:'----------Empleado----------'.
+		Transcript show:'Nombre: ', e verNom printString; cr.
+		Transcript show:'Horas: ', e verCantH printString; cr.
+		Transcript show:'Hijos: ', e verHijos printString; cr.
+		Transcript show:'Licencia: ', e verLic printString; cr.
+		Transcript show:'Estado civil: ', e verEstCi printString; cr.
+		(e class = Temporario)ifTrue: [
+			Transcript show:'Contrato: ', e verCont printString; cr.].
+		(e class = Permanente)ifTrue: [
+			Transcript show:'Antiguedad: ', e verAntig printString; cr.].
+		Transcript show: '---------------------------------'; cr.
+		].
+	].
+].
+!
+
+"07:31:41, lunes, 23 de septiembre de 2024: Image saved"!
+
+"14:35:16, miércoles, 25 de septiembre de 2024: Dolphin Smalltalk Professional started"!
+
+nil subclass: #Juego
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+Juego guid: (GUID fromString: '{7DE3A75C-B2B9-470A-9625-5C2565FB2402}')!
+Juego comment: ''!
+!Juego categoriesForClass!Unclassified! !
+!Juego class methodsFor!
+crearJuego: unId con:unTitulo con:unGenero con:unPlataforma con:unConsumoRam
+! !
+!Juego class categoriesFor: #crearJuego:con:con:con:con:!public! !
+
+"Filed out from Dolphin Smalltalk 7"!
+
+Object subclass: #Farmacia
+	instanceVariableNames: 'nombre conjRem'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+Farmacia guid: (GUID fromString: '{5581E204-7EF5-4602-94C7-C8846679A54E}')!
+
+Farmacia guid: (GUID fromString: '{5581E204-7EF5-4602-94C7-C8846679A54E}')!
+Farmacia comment: ''!
+
+Farmacia comment:
+''!
+!Farmacia methodsFor!
+agregar:unRem
+conjRem add:unRem.! !
+!Farmacia categoriesFor: #agregar:!public! !
+
+!Farmacia methodsFor!
+eliminar:unRem
+conjRem remove: unRem ifAbsent:[^nil].! !
+!Farmacia categoriesFor: #eliminar:!public! !
+
+!Farmacia methodsFor!
+esVacio
+^conjRem isEmpty.! !
+!Farmacia categoriesFor: #esVacio!public! !
+
+!Farmacia methodsFor!
+existe: unRem
+^conjRem includes: unRem.! !
+!Farmacia categoriesFor: #existe:!public! !
+
+!Farmacia methodsFor!
+init: nom
+
+nombre:= nom.
+conjRem := OrderedCollection new.! !
+!Farmacia categoriesFor: #init:!public! !
+
+!Farmacia methodsFor!
+modNombre:otroNom
+
+nombre:=otroNom.! !
+!Farmacia categoriesFor: #modNombre:!public! !
+
+!Farmacia methodsFor!
+recuperar: i
+^conjRem at: i.! !
+!Farmacia categoriesFor: #recuperar:!public! !
+
+!Farmacia methodsFor!
+tamanio
+^conjRem size.! !
+!Farmacia categoriesFor: #tamanio!public! !
+
+!Farmacia methodsFor!
+verNombre
+^nombre! !
+!Farmacia categoriesFor: #verNombre!public! !
+
+!Farmacia methodsFor!
+verTodos
+^conjRem.! !
+!Farmacia categoriesFor: #verTodos!public! !
+
+!Farmacia categoriesFor: #agregar:!public! !
+
+!Farmacia categoriesFor: #eliminar:!public! !
+
+!Farmacia categoriesFor: #esVacio!public! !
+
+!Farmacia categoriesFor: #existe:!public! !
+
+!Farmacia categoriesFor: #init:!public! !
+
+!Farmacia categoriesFor: #modNombre:!public! !
+
+!Farmacia categoriesFor: #recuperar:!public! !
+
+!Farmacia categoriesFor: #tamanio!public! !
+
+!Farmacia categoriesFor: #verNombre!public! !
+
+!Farmacia categoriesFor: #verTodos!public! !
+
+!Farmacia class methodsFor!
+crear:nom
+
+^self new init:nom.
+! !
+!Farmacia class categoriesFor: #crear:!public! !
+
+!Farmacia class categoriesFor: #crear:!public! !
+
+!
+
+"14:56:27, miércoles, 25 de septiembre de 2024: Image saved"!
+
+nil subclass: #Juego
+	instanceVariableNames: 'id titulo genero plataforma consumoRam'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+Object subclass: #Juego
+	instanceVariableNames: 'id titulo genero plataforma consumoRam'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+Object subclass: #Juego
+	instanceVariableNames: 'id titulo genero plataforma consumoRam conjJuegos'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+"14:59:03, miércoles, 25 de septiembre de 2024: Image saved"!
+
+!Juego methodsFor!
+init:unId
+
+id:=unId.
+conjJuegos:= OrderedCollection new.! !
+!Juego categoriesFor: #init:!public! !
+
+!Farmacia class methodsFor!
+crear:nom
+
+^self new init:nom.
+! !
+!Farmacia class categoriesFor: #crear:!public! !
+
+!Juego class methodsFor!
+crearJuego: unId con:unTitulo con:unGenero con:unPlataforma con:unConsumoRam
+ ^self new init:unId con:unTitulo con:unGenero con:unPlataforma con:unConsumoRam.! !
+!Juego class categoriesFor: #crearJuego:con:con:con:con:!public! !
+
+!Juego class methodsFor!
+crear: unId con:unTitulo con:unGenero con:unPlataforma con:unConsumoRam
+ ^self new init:unId con:unTitulo con:unGenero con:unPlataforma con:unConsumoRam.! !
+!Juego class categoriesFor: #crear:con:con:con:con:!public! !
+
+Juego class removeSelector: #crearJuego:con:con:con:con: ifAbsent: []!
+
+"Filed out from Dolphin Smalltalk 7"!
+
+Object subclass: #Remedio
+	instanceVariableNames: 'nombre precio stock laborat'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+Remedio guid: (GUID fromString: '{7B5759B2-B8B6-437B-9B2B-4469507079C2}')!
+
+Remedio guid: (GUID fromString: '{7B5759B2-B8B6-437B-9B2B-4469507079C2}')!
+Remedio comment: ''!
+
+Remedio comment:
+''!
+!Remedio methodsFor!
+iniciar:nom pre:unPre stock:unSt laborat:unLab
+"Inicializa el remedio con sus datos"
+nombre:=nom.
+precio:=unPre.
+stock:=unSt.
+laborat:=unLab.! !
+!Remedio categoriesFor: #iniciar:pre:stock:laborat:!public! !
+
+!Remedio methodsFor!
+modLab:otroLab
+"Modifica el laboratorio del remedio"
+laborat:=otroLab.
+! !
+!Remedio categoriesFor: #modLab:!accessing!public! !
+
+!Remedio methodsFor!
+modNombre: otroNom
+"Modifica el nombre del remedio"
+nombre:=otroNom.! !
+!Remedio categoriesFor: #modNombre:!accessing!public! !
+
+!Remedio methodsFor!
+modPrecio:otroPre
+"Modifica el precio del remedio"
+precio:=otroPre.
+! !
+!Remedio categoriesFor: #modPrecio:!accessing!public! !
+
+!Remedio methodsFor!
+modStock:otroSt
+"Modifica el stock del remedio"
+stock:=otroSt.
+! !
+!Remedio categoriesFor: #modStock:!accessing!public! !
+
+!Remedio methodsFor!
+verLab
+"Retorna el laboratorio del remedio"
+^laborat! !
+!Remedio categoriesFor: #verLab!accessing!public! !
+
+!Remedio methodsFor!
+verNombre
+"Retorna el nombre del remedio"
+^nombre! !
+!Remedio categoriesFor: #verNombre!public! !
+
+!Remedio methodsFor!
+verPrecio 
+"Retorna el precio del remedio"
+^precio! !
+!Remedio categoriesFor: #verPrecio!public! !
+
+!Remedio methodsFor!
+verStock
+"Retorna el stock del remedio"
+^stock! !
+!Remedio categoriesFor: #verStock!public! !
+
+!Remedio categoriesFor: #iniciar:pre:stock:laborat:!public! !
+
+!Remedio categoriesFor: #modLab:!accessing!public! !
+
+!Remedio categoriesFor: #modNombre:!accessing!public! !
+
+!Remedio categoriesFor: #modPrecio:!accessing!public! !
+
+!Remedio categoriesFor: #modStock:!accessing!public! !
+
+!Remedio categoriesFor: #verLab!accessing!public! !
+
+!Remedio categoriesFor: #verNombre!public! !
+
+!Remedio categoriesFor: #verPrecio!public! !
+
+!Remedio categoriesFor: #verStock!public! !
+
+!Remedio class methodsFor!
+crear:nom con:unPre con:unSt con:unLab
+"Crea una instancia de la clase Remedio y la inicializa con sus datos"
+^self new iniciar:nom pre:unPre stock:unSt laborat:unLab! !
+!Remedio class categoriesFor: #crear:con:con:con:!public! !
+
+!Remedio class categoriesFor: #crear:con:con:con:!public! !
+
+!
+
+!Juego methodsFor!
+init:unId tit:unTit gen:unGen plat:unPlat cons:unCons
+
+id:=unId.
+conjJuegos:= OrderedCollection new.! !
+!Juego categoriesFor: #init:tit:gen:plat:cons:!public! !
+
+!Juego methodsFor!
+init:unId tit:unTit gen:unGen plat:unPlat cons:unCons
+
+id:=unId.
+titulo:=unTit.
+genero:=unGen.
+plataforma:=unPlat.
+consumoRam:=unCons.
+conjJuegos:= OrderedCollection new.! !
+!Juego categoriesFor: #init:tit:gen:plat:cons:!public! !
+
+"15:05:08, miércoles, 25 de septiembre de 2024: Image saved"!
+
+Juego removeSelector: #init: ifAbsent: []!
+
+!Juego class methodsFor!
+crear: unId tit:unTitulo gen:unGenero plat:unPlataforma cons:unConsumoRam
+ ^self new init:unId tit:unTitulo gen:unGenero plat:unPlataforma cons:unConsumoRam.! !
+!Juego class categoriesFor: #crear:tit:gen:plat:cons:!public! !
+
+Juego class removeSelector: #crear:con:con:con:con: ifAbsent: []!
+
+!Juego class methodsFor!
+crear: unId tit:unTitulo gen:unGenero plat:unPlataforma cons:unConsumoRam
+ ^self new init:unId tit:unTitulo gen:unGenero plat:unPlataforma cons:unConsumoRam.! !
+!Juego class categoriesFor: #crear:tit:gen:plat:cons:!public! !
+
+"15:06:33, miércoles, 25 de septiembre de 2024: Image saved"!
+
+!Juego methodsFor!
+verId
+^id.! !
+!Juego categoriesFor: #verId!public! !
+
+!Juego methodsFor!
+verTit
+^titulo.! !
+!Juego categoriesFor: #verTit!public! !
+
+!Juego methodsFor!
+verPlat
+^plataforma! !
+!Juego categoriesFor: #verPlat!public! !
+
+!Juego methodsFor!
+verPlat
+^plataforma.! !
+!Juego categoriesFor: #verPlat!public! !
+
+!Juego methodsFor!
+verPlat
+^plataforma! !
+!Juego categoriesFor: #verPlat!public! !
+
+!Juego methodsFor!
+verTit
+^titulo! !
+!Juego categoriesFor: #verTit!public! !
+
+!Juego methodsFor!
+verId
+^id! !
+!Juego categoriesFor: #verId!public! !
+
+!Juego methodsFor!
+verCons
+^consumoRam! !
+!Juego categoriesFor: #verCons!public! !
+
+!Juego methodsFor!
+modId:unId
+id:=unId.! !
+!Juego categoriesFor: #modId:!public! !
+
+!Juego methodsFor!
+modTit:unTit
+titulo:=unTit.! !
+!Juego categoriesFor: #modTit:!public! !
+
+!Juego methodsFor!
+modPlat:unPlat
+plataforma:=unPlat.! !
+!Juego categoriesFor: #modPlat:!public! !
+
+!Juego methodsFor!
+modCons:unCons
+consumoRam:=unCons.! !
+!Juego categoriesFor: #modCons:!public! !
+
+"15:11:53, miércoles, 25 de septiembre de 2024: Image saved"!
+
+"15:13:00, miércoles, 25 de septiembre de 2024: Dolphin Smalltalk Professional started"!
+
+"15:13:55, miércoles, 25 de septiembre de 2024: Image saved to 'C:\Users\Nicol\OneDrive\Escritorio\Facultad\Paradigmas de programacion\Trabajo practico Dolphin 2024\PracticoParadigmas\DPRO.img7'"!
+
+"15:15:00, miércoles, 25 de septiembre de 2024: Image saved"!
+
+Object subclass: #Consola
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+Consola guid: (GUID fromString: '{3DF8C52D-184D-4866-A35A-8A9945C51D41}')!
+Consola comment: ''!
+!Consola categoriesForClass!Kernel-Objects! !
+!Consola methodsFor!
+init:unNom espacio:unEsp
+! !
+!Consola categoriesFor: #init:espacio:!public! !
+
+Object subclass: #Consola
+	instanceVariableNames: 'nombre espacio'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+"15:19:42, miércoles, 25 de septiembre de 2024: Image saved"!
+
+!Consola methodsFor!
+init:unNom espacio:unEsp
+nombre:=unNom.
+espacio:=unEsp.! !
+!Consola categoriesFor: #init:espacio:!public! !
+
+!Consola methodsFor!
+init:unNom esp:unEsp
+nombre:=unNom.
+espacio:=unEsp.! !
+!Consola categoriesFor: #init:esp:!public! !
+
+Consola removeSelector: #init:espacio: ifAbsent: []!
+
+!Consola class methodsFor!
+crear:unNombre esp:unEsp
+^self new init: unNombre esp:unEsp.! !
+!Consola class categoriesFor: #crear:esp:!public! !
+
+Object subclass: #Consola
+	instanceVariableNames: 'nombre espacio conJuegos'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+!Consola methodsFor!
+init:unNom esp:unEsp
+nombre:=unNom.
+espacio:=unEsp.
+conJuegos:=OrderedCollection.! !
+!Consola categoriesFor: #init:esp:!public! !
+
+!Consola methodsFor!
+init:unNom esp:unEsp
+nombre:=unNom.
+espacio:=unEsp.
+conJuegos:= OrderedCollection.! !
+!Consola categoriesFor: #init:esp:!public! !
+
+!Consola methodsFor!
+init:unNom esp:unEsp
+nombre:=unNom.
+espacio:=unEsp.
+conJuegos:= OrderedCollection new.! !
+!Consola categoriesFor: #init:esp:!public! !
+
+!Consola methodsFor!
+agregar:unJuego
+conJuegos add:unJuego.! !
+!Consola categoriesFor: #agregar:!public! !
+
+!Consola methodsFor!
+eliminar:unJuego
+conJuegos rem:unJuego.! !
+!Consola categoriesFor: #eliminar:!public! !
+
+!Consola methodsFor!
+eliminar:unJuego
+conJuegos remove:unJuego ifAbsent:[^nil].! !
+!Consola categoriesFor: #eliminar:!public! !
+
+!Consola methodsFor!
+esVacio
+^conJuegos isEmpty.! !
+!Consola categoriesFor: #esVacio!public! !
+
+!Consola methodsFor!
+existe:unJuego
+^conJuegos includes: unJuego.! !
+!Consola categoriesFor: #existe:!public! !
+
+!Consola methodsFor!
+modNombre:unNom
+nombre:=unNom.! !
+!Consola categoriesFor: #modNombre:!public! !
+
+!Consola methodsFor!
+modEspacio:unEsp
+espacio:=unEsp.! !
+!Consola categoriesFor: #modEspacio:!public! !
+
+!Consola methodsFor!
+recuperar: i
+conJuegos at:i.! !
+!Consola categoriesFor: #recuperar:!public! !
+
+!Consola methodsFor!
+tamanio
+^conJuegos size.! !
+!Consola categoriesFor: #tamanio!public! !
+
+!Consola methodsFor!
+verNombre
+^nombre.! !
+!Consola categoriesFor: #verNombre!public! !
+
+!Consola methodsFor!
+verEspacio
+^espacio.! !
+!Consola categoriesFor: #verEspacio!public! !
+
+!Consola methodsFor!
+verTodos
+^conJuegos.! !
+!Consola categoriesFor: #verTodos!public! !
+
+"Filed out from Dolphin Smalltalk 7"!
+
+Object subclass: #Juego
+	instanceVariableNames: 'id titulo genero plataforma consumoRam conjJuegos'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+Juego guid: (GUID fromString: '{7DE3A75C-B2B9-470A-9625-5C2565FB2402}')!
+
+Juego guid: (GUID fromString: '{7DE3A75C-B2B9-470A-9625-5C2565FB2402}')!
+Juego comment: ''!
+
+Juego comment:
+''!
+!Juego categoriesForClass!Unclassified! !
+!Juego methodsFor!
+init:unId tit:unTit gen:unGen plat:unPlat cons:unCons
+
+id:=unId.
+titulo:=unTit.
+genero:=unGen.
+plataforma:=unPlat.
+consumoRam:=unCons.
+conjJuegos:= OrderedCollection new.! !
+!Juego categoriesFor: #init:tit:gen:plat:cons:!public! !
+
+!Juego methodsFor!
+modCons:unCons
+consumoRam:=unCons.! !
+!Juego categoriesFor: #modCons:!public! !
+
+!Juego methodsFor!
+modId:unId
+id:=unId.! !
+!Juego categoriesFor: #modId:!public! !
+
+!Juego methodsFor!
+modPlat:unPlat
+plataforma:=unPlat.! !
+!Juego categoriesFor: #modPlat:!public! !
+
+!Juego methodsFor!
+modTit:unTit
+titulo:=unTit.! !
+!Juego categoriesFor: #modTit:!public! !
+
+!Juego methodsFor!
+verCons
+^consumoRam! !
+!Juego categoriesFor: #verCons!public! !
+
+!Juego methodsFor!
+verId
+^id! !
+!Juego categoriesFor: #verId!public! !
+
+!Juego methodsFor!
+verPlat
+^plataforma! !
+!Juego categoriesFor: #verPlat!public! !
+
+!Juego methodsFor!
+verTit
+^titulo! !
+!Juego categoriesFor: #verTit!public! !
+
+!Juego categoriesFor: #init:tit:gen:plat:cons:!public! !
+
+!Juego categoriesFor: #modCons:!public! !
+
+!Juego categoriesFor: #modId:!public! !
+
+!Juego categoriesFor: #modPlat:!public! !
+
+!Juego categoriesFor: #modTit:!public! !
+
+!Juego categoriesFor: #verCons!public! !
+
+!Juego categoriesFor: #verId!public! !
+
+!Juego categoriesFor: #verPlat!public! !
+
+!Juego categoriesFor: #verTit!public! !
+
+!Juego class methodsFor!
+crear: unId tit:unTitulo gen:unGenero plat:unPlataforma cons:unConsumoRam
+ ^self new init:unId tit:unTitulo gen:unGenero plat:unPlataforma cons:unConsumoRam.! !
+!Juego class categoriesFor: #crear:tit:gen:plat:cons:!public! !
+
+!Juego class categoriesFor: #crear:tit:gen:plat:cons:!public! !
+
+!
+
+Consola subclass: #Singleplayer
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+Singleplayer guid: (GUID fromString: '{57BD27E4-831B-464C-A8A0-08074430E3B9}')!
+Singleplayer comment: ''!
+!Singleplayer categoriesForClass!Kernel-Objects! !
+Juego subclass: #Singleplayer
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+"Filed out from Dolphin Smalltalk 7"!
+
+!
+
+"Filed out from Dolphin Smalltalk 7"!
+
+!
+
+"Filed out from Dolphin Smalltalk 7"!
+
+Object subclass: #Expediente
+	instanceVariableNames: 'numero titular fechaPresentacion tipo'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+Expediente guid: (GUID fromString: '{0E5D2820-E04C-4A4A-8935-3D4477FC3AD1}')!
+
+Expediente guid: (GUID fromString: '{0E5D2820-E04C-4A4A-8935-3D4477FC3AD1}')!
+Expediente comment: ''!
+
+Expediente comment:
+''!
+!Expediente categoriesForClass!Kernel-Objects! !
+!Expediente methodsFor!
+iniciar:unNumero con:unTitular con:unaFechaP 
+numero:=unNumero.
+titular:=unTitular.
+fechaPresentacion:=unaFechaP.
+! !
+!Expediente categoriesFor: #iniciar:con:con:!public! !
+
+!Expediente methodsFor!
+modFechaP:unaFechaP
+fechaPresentacion:=unaFechaP.! !
+!Expediente categoriesFor: #modFechaP:!public! !
+
+!Expediente methodsFor!
+modNumero:unNumero
+numero:=unNumero.! !
+!Expediente categoriesFor: #modNumero:!public! !
+
+!Expediente methodsFor!
+modTitular:unTitular
+titular:=unTitular.! !
+!Expediente categoriesFor: #modTitular:!public! !
+
+!Expediente methodsFor!
+verFechaP
+^fechaPresentacion.! !
+!Expediente categoriesFor: #verFechaP!public! !
+
+!Expediente methodsFor!
+verNumero
+^numero.! !
+!Expediente categoriesFor: #verNumero!public! !
+
+!Expediente methodsFor!
+verTitular
+^titular.! !
+!Expediente categoriesFor: #verTitular!public! !
+
+!Expediente categoriesFor: #iniciar:con:con:!public! !
+
+!Expediente categoriesFor: #modFechaP:!public! !
+
+!Expediente categoriesFor: #modNumero:!public! !
+
+!Expediente categoriesFor: #modTitular:!public! !
+
+!Expediente categoriesFor: #verFechaP!public! !
+
+!Expediente categoriesFor: #verNumero!public! !
+
+!Expediente categoriesFor: #verTitular!public! !
+
+!Expediente class methodsFor!
+crearExpediente:unNumero con:unTitular con:unaFechaP 
+^(super new) iniciar:unNumero con:unTitular con:unaFechaP.! !
+!Expediente class categoriesFor: #crearExpediente:con:con:!public! !
+
+!Expediente class methodsFor!
+crearExpediente:unNumero con:unTitular con:unaFechaP con:unTipo
+^(super new) iniciar:unNumero con:unTitular con:unaFechaP con:unTipo.! !
+!Expediente class categoriesFor: #crearExpediente:con:con:con:!public! !
+
+!Expediente class categoriesFor: #crearExpediente:con:con:!public! !
+
+!Expediente class categoriesFor: #crearExpediente:con:con:con:!public! !
+
+!
+
+"Filed out from Dolphin Smalltalk 7"!
+
+Expediente subclass: #Penal
+	instanceVariableNames: 'acusado acusacion pruebasPresentadas testimonios'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+Penal guid: (GUID fromString: '{F684530E-9650-48B0-B4FB-E80318AA50F6}')!
+
+Penal guid: (GUID fromString: '{F684530E-9650-48B0-B4FB-E80318AA50F6}')!
+Penal comment: ''!
+
+Penal comment:
+''!
+!Penal categoriesForClass!Kernel-Objects! !
+!Penal methodsFor!
+iniciar: unNumero con: unTitular con: unaFechaP con: unAcusado con: unAcusacion con: unPruebasPresentadas con: unTestimonios
+	"Inicializa la clase ExpedientePenal"
+	acusado := unAcusado.
+	acusacion := unAcusacion.
+	pruebasPresentadas := unPruebasPresentadas.
+	testimonios := unTestimonios.
+	^super iniciar: unNumero con: unTitular con: unaFechaP.! !
+!Penal categoriesFor: #iniciar:con:con:con:con:con:con:!public! !
+
+!Penal methodsFor!
+modAcusacion:unAcusacion
+"Modifica acusacion por unAcusacion"
+acusacion:=unAcusacion.! !
+!Penal categoriesFor: #modAcusacion:!public! !
+
+!Penal methodsFor!
+modAcusado:unAcusado
+"Modifica acusado por unAcusado"
+acusado:=unAcusado.! !
+!Penal categoriesFor: #modAcusado:!public! !
+
+!Penal methodsFor!
+modPruebasPresentadas:unPruebasPresentadas
+"Modifica pruebasPresentadas por unPruebasPresentadas"
+pruebasPresentadas:=unPruebasPresentadas.! !
+!Penal categoriesFor: #modPruebasPresentadas:!public! !
+
+!Penal methodsFor!
+modTestimonios:unTestimonios
+"Modifica testimonios por unTestimonios"
+testimonios:=unTestimonios.! !
+!Penal categoriesFor: #modTestimonios:!public! !
+
+!Penal methodsFor!
+verAcusacion
+"Retorna la acusacion"
+^acusacion.! !
+!Penal categoriesFor: #verAcusacion!public! !
+
+!Penal methodsFor!
+verAcusado
+"Retorna el nombre del acusado"
+^acusado.! !
+!Penal categoriesFor: #verAcusado!public! !
+
+!Penal methodsFor!
+verPruebasPresentadas
+"Retorna las pruebas presentadas"
+^pruebasPresentadas.! !
+!Penal categoriesFor: #verPruebasPresentadas!public! !
+
+!Penal methodsFor!
+verTestimonios
+"Retorna los testimonios"
+^testimonios.! !
+!Penal categoriesFor: #verTestimonios!public! !
+
+!Penal categoriesFor: #iniciar:con:con:con:con:con:con:!public! !
+
+!Penal categoriesFor: #modAcusacion:!public! !
+
+!Penal categoriesFor: #modAcusado:!public! !
+
+!Penal categoriesFor: #modPruebasPresentadas:!public! !
+
+!Penal categoriesFor: #modTestimonios:!public! !
+
+!Penal categoriesFor: #verAcusacion!public! !
+
+!Penal categoriesFor: #verAcusado!public! !
+
+!Penal categoriesFor: #verPruebasPresentadas!public! !
+
+!Penal categoriesFor: #verTestimonios!public! !
+
+!Penal class methodsFor!
+crearPenal:unNumero con:unTitular con:unaFechaP  con:unAcusado con:unAcusacion con:unpruebasPresentadas con:unTestimonios
+^(super new)iniciar:unNumero con:unTitular con:unaFechaP  con:unAcusado con:unAcusacion con:unpruebasPresentadas con:unTestimonios.! !
+!Penal class categoriesFor: #crearPenal:con:con:con:con:con:con:!public! !
+
+!Penal class categoriesFor: #crearPenal:con:con:con:con:con:con:!public! !
+
+!
+
+Juego subclass: #Singleplayer
+	instanceVariableNames: 'duracionCampana'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+!Singleplayer methodsFor!
+init: unId tit: unTit gen: unGen plat: unPlat cons: unCons dur:unDur
+duracionCampana:=unDur.! !
+!Singleplayer categoriesFor: #init:tit:gen:plat:cons:dur:!public! !
+
+!Singleplayer methodsFor!
+init: unId tit: unTit gen: unGen plat: unPlat cons: unCons dur:unDur
+duracionCampana:=unDur.
+^super init: unId tit: unTit gen: unGen plat: unPlat cons: unCons! !
+!Singleplayer categoriesFor: #init:tit:gen:plat:cons:dur:!public! !
+
+!Singleplayer methodsFor!
+init: unId tit: unTit gen: unGen plat: unPlat cons: unCons dur:unDur
+duracionCampana:=unDur.
+^super init: unId tit: unTit gen: unGen plat: unPlat cons: unCons.! !
+!Singleplayer categoriesFor: #init:tit:gen:plat:cons:dur:!public! !
+
+!Singleplayer class methodsFor!
+crearSingle: unId tit: unTitulo gen: unGenero plat: unPlataforma cons: unConsumoRam dur:unDur
+^(super new)init: unId tit: unTitulo gen: unGenero plat: unPlataforma cons: unConsumoRam dur: unDur.! !
+!Singleplayer class categoriesFor: #crearSingle:tit:gen:plat:cons:dur:!public! !
+
+!Singleplayer class methodsFor!
+crearSingle: unId tit: unTit gen: unGen plat: unPlat cons: unCons dur:unDur
+^(super new)init: unId tit: unTit gen: unGen plat: unPlat cons: unCons dur: unDur.! !
+!Singleplayer class categoriesFor: #crearSingle:tit:gen:plat:cons:dur:!public! !
+
+"15:37:41, miércoles, 25 de septiembre de 2024: Image saved"!
+
+!Singleplayer class methodsFor!
+crearSingle: unId tit: unTit gen: unGen plat: unPlat cons: unCons dur:unDur
+^(super new)init: unId tit: unTit gen: unGen plat: unPlat cons: unCons dur: unDur.! !
+!Singleplayer class categoriesFor: #crearSingle:tit:gen:plat:cons:dur:!public! !
+
+!Singleplayer methodsFor!
+verDur
+^duracionCampana.! !
+!Singleplayer categoriesFor: #verDur!public! !
+
+!Singleplayer methodsFor!
+modDur:unDur
+duracionCampana:=unDur.! !
+!Singleplayer categoriesFor: #modDur:!public! !
+
+Singleplayer subclass: #Multiplayer
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+Multiplayer guid: (GUID fromString: '{89965D59-2F95-4A7E-80AF-72AF06AF0FA0}')!
+Multiplayer comment: ''!
+!Multiplayer categoriesForClass!Kernel-Objects! !
+Juego subclass: #Multiplayer
+	instanceVariableNames: 'totalJugadores online'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+"15:39:04, miércoles, 25 de septiembre de 2024: Image saved"!
+
+!Multiplayer methodsFor!
+init: unId tit: unTit gen: unGen plat: unPlat cons: unCons totJug:unTotJug onl:unOnl
+totalJugadores:=unTotJug.
+online:=unOnl.! !
+!Multiplayer categoriesFor: #init:tit:gen:plat:cons:totJug:onl:!public! !
+
+!Multiplayer methodsFor!
+init: unId tit: unTit gen: unGen plat: unPlat cons: unCons totJug:unTotJug onl:unOnl
+totalJugadores:=unTotJug.
+online:=unOnl.
+^super init: unId tit: unTit gen: unGen plat: unPlat cons: unCons totJug:unTotJug onl:unOnl.! !
+!Multiplayer categoriesFor: #init:tit:gen:plat:cons:totJug:onl:!public! !
+
+!Multiplayer methodsFor!
+init: unId tit: unTit gen: unGen plat: unPlat cons: unCons totJug:unTotJug onl:unOnl
+totalJugadores:=unTotJug.
+online:=unOnl.
+^super init: unId tit: unTit gen: unGen plat: unPlat cons: unCons.! !
+!Multiplayer categoriesFor: #init:tit:gen:plat:cons:totJug:onl:!public! !
+
+!Multiplayer class methodsFor!
+crear: unId tit: unTit gen: unGen plat: unPlat cons: unCons tot:unTot onl:unOnl
+^(super new) init: unId tit: unTit gen: unGen plat: unPlat cons: unCons tot:unTot onl:unOnl.! !
+!Multiplayer class categoriesFor: #crear:tit:gen:plat:cons:tot:onl:!public! !
+
+!Multiplayer class methodsFor!
+crear: unId tit: unTit gen: unGen plat: unPlat cons: unCons tot:unTot onl:unOnl
+^(super new) init: unId tit: unTit gen: unGen plat: unPlat cons: unCons tot:unTot onl:unOnl.! !
+!Multiplayer class categoriesFor: #crear:tit:gen:plat:cons:tot:onl:!public! !
+
+!Multiplayer methodsFor!
+init: unId tit: unTit gen: unGen plat: unPlat cons: unCons totJug:unTotJug onl:unOnl
+totalJugadores:=unTotJug.
+online:=unOnl.
+^super init: unId tit: unTit gen: unGen plat: unPlat cons: unCons.! !
+!Multiplayer categoriesFor: #init:tit:gen:plat:cons:totJug:onl:!public! !
+
+"15:42:48, miércoles, 25 de septiembre de 2024: Image saved"!
+
+!Multiplayer class methodsFor!
+crear: unId tit: unTit gen: unGen plat: unPlat cons: unCons tot:unTot onl:unOnl
+^(super new) init: unId tit: unTit gen: unGen plat: unPlat cons: unCons tot:unTot onl:unOnl.! !
+!Multiplayer class categoriesFor: #crear:tit:gen:plat:cons:tot:onl:!public! !
+
+!Multiplayer methodsFor!
+init: unId tit: unTit gen: unGen plat: unPlat cons: unCons totJug:unTot onl:unOnl
+totalJugadores:=unTot.
+online:=unOnl.
+^super init: unId tit: unTit gen: unGen plat: unPlat cons: unCons.! !
+!Multiplayer categoriesFor: #init:tit:gen:plat:cons:totJug:onl:!public! !
+
+!Multiplayer class methodsFor!
+crearMulti: unId tit: unTit gen: unGen plat: unPlat cons: unCons tot:unTot onl:unOnl
+^(super new) init: unId tit: unTit gen: unGen plat: unPlat cons: unCons tot:unTot onl:unOnl.! !
+!Multiplayer class categoriesFor: #crearMulti:tit:gen:plat:cons:tot:onl:!public! !
+
+Multiplayer class removeSelector: #crear:tit:gen:plat:cons:tot:onl: ifAbsent: []!
+
+Juego subclass: #Multiplayer
+	instanceVariableNames: 'totalJugadores online'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+!Multiplayer methodsFor!
+verTotJug
+^totalJugadores.! !
+!Multiplayer categoriesFor: #verTotJug!public! !
+
+!Multiplayer methodsFor!
+verOnline
+^online.! !
+!Multiplayer categoriesFor: #verOnline!public! !
+
+!Multiplayer methodsFor!
+modTotJug:unTot
+totalJugadores:=unTot.! !
+!Multiplayer categoriesFor: #modTotJug:!public! !
+
+!Multiplayer methodsFor!
+modOnline:unOnl
+online:=unOnl.! !
+!Multiplayer categoriesFor: #modOnline:!public! !
+
+"15:51:02, miércoles, 25 de septiembre de 2024: Image saved"!
+
+!Multiplayer methodsFor!
+modOnline:unOnl
+online:=unOnl.! !
+!Multiplayer categoriesFor: #modOnline:!public! !
+
+"15:51:12, miércoles, 25 de septiembre de 2024: Image saved"!
+

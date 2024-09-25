@@ -1,0 +1,24 @@
+15:19:54, miércoles, 25 de septiembre de 2024: Unhandled exception - a NotFoundError('Not found: 2')
+
+ListView(Object)>>errorNotFound:
+[] in ListView(ListControlView)>>objectFromHandle:
+ListModel(SequenceableCollection)>>at:ifAbsent:
+ListView(ListControlView)>>objectFromHandle:ifAbsent:
+ListView(ListControlView)>>objectFromHandle:
+[] in ListView(ListControlView)>>selections
+[] in SequenceableCollection>>collect:
+Array(SequenceableCollection)>>uncheckedFrom:to:keysAndValuesDo:
+Array(SequenceableCollection)>>keysAndValuesDo:
+Array(SequenceableCollection)>>collect:
+ListView(ListControlView)>>selections
+ListPresenter(SelectableItemsPresenter)>>selections
+MethodBrowser(SelectableItemsPresenter)>>selections
+MethodBrowser>>queryCommand:
+DelegatingCommandPolicy(CommandPolicy)>>queryCommand:ofTarget:
+[] in DelegatingCommandPolicy(CommandPolicy)>>queryCommand:
+OrderedCollection>>do:
+DelegatingCommandPolicy(CommandPolicy)>>queryCommand:
+DelegatingCommandPolicy(CommandPolicy)>>query:
+ToolbarIconButton(ToolbarButton)>>validateUserInterface:
+----------------------------------------------------------------------------------------------------
+
